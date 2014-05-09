@@ -1,0 +1,16 @@
+# Exclude all files and Directories
+*
+
+# Include some Specific files or Directories
+!.bashrc
+!.bashrc
+!.conkyrc
+!.gitconfig
+!.login
+!.logout
+!.screenrc
+!.sessrec.sh
+!.shrc
+!.tmux.conf
+!.vimrc
+!README.md
