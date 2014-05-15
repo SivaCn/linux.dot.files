@@ -51,7 +51,16 @@ set scrolloff=1
 set showcmd         " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set smartcase       " Case insensitive searches become sensitive with capitals
-set smarttab        " sw at the start of the line, sts everywhere else
+"set smarttab        " sw at the start of the line, sts everywhere else
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+set cursorline
+"set cursorcolumn
+
 if exists("+spelllang")
   set spelllang=en_us
 endif
