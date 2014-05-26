@@ -25,8 +25,7 @@ if [ -x /usr/bin/tty -o -x /usr/local/bin/tty ]; then
   ttyat="`tty|sed -e s,^/dev/,,`@"
 fi
 
-PS1='\n┏━\[\e[7m\]┅◉  \[\e[1;37m\] <Machine> ◉━\[\e[0m\]━━\[\e[7m\]┅◉ ip \[\e[1;37m\] $(ip) ◉━\[\e[0m\]━━\[\e[7m\]┅◉ Git \[\e[1;37m\] $(parse_git_branch) ◉ \[\e[0m\] \n┣┅◉  \[\033[1;31m\] `pwd` \[\e[0m\] \n┗\[\e[7m\]┅◉ User \[\e[1;37m\] \u ◉━\[\e[0m\]━► '
-
+PS1='\n┏━\[\e[7m\]┅◉  \[\e[1;37m\] <Machine> ◉━\[\e[0m\]━━\[\e[7m\]┅◉ IP \[\e[1;37m\] $(ip) ◉━\[\e[0m\]━━\[\e[7m\]┅◉ Git \[\e[1;37m\] $(parse_git_    branch) \[\e[0m\]\[\e[7m\] [$(gittotalstash)] $(gitstashtop) ◉ \[\e[1;37m\]\[\e[0m\] \n┣┅◉  \[\033[1;31m\] `pwd` \[\e[0m\] \n┗\[\e[7m\]┅◉ User \[\    e[1;37m\] \u ◉━\[\e[0m\]━► '
 
 case "$TERM" in
   screen*|xterm*|rxvt*|Eterm*|kterm*|dtterm*|ansi*|cygwin*)
@@ -148,4 +147,12 @@ function parse_git_dirty {
 }
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
+function gittotalstash(){
+  echo `git stash list | wc -l`                                                                                                                   
+}
+
+function gitstashtop(){
+  echo `git stash list | awk -F' ' 'NR==1 {print $5}' | tr ':' ' '`
 }
