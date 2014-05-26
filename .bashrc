@@ -150,7 +150,7 @@ function parse_git_branch {
 }
 
 function gittotalstash(){
-  echo `git stash list | wc -l`                                                                                                                   
+  echo `git stash list | wc -l`                                                                                                                  
 }
 
 function gitstashtop(){
