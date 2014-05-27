@@ -12,6 +12,10 @@ silent! execute pathogen#infect("~/src/vim/bundle/{}")
 " Section: Options {{{1
 " ---------------------
 
+" Rebind <Leader> key
+" " I like to have it here becuase it is easier to reach than the default and
+" " it is next to ``m`` and ``n`` which I use for navigating between tabs.
+let mapleader = ","
 
 " Bind nohl
 " Removes highlight of your last search
@@ -334,11 +338,6 @@ endif
 
 " Section: Mappings {{{1
 " ----------------------
-
-" Rebind <Leader> key
-" " I like to have it here becuase it is easier to reach than the default and
-" " it is next to ``m`` and ``n`` which I use for navigating between tabs.
-let mapleader = ","
 
 " Make search case insensitive
 set hlsearch
