@@ -1,3 +1,6 @@
+## Sourcing External Configs
+source ~/.aliases
+
 shopt -s extglob 2>/dev/null
 set -o noclobber
 
