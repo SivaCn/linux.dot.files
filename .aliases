@@ -87,7 +87,9 @@ alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
-
+alias gitl="git log --pretty=format:\"%h - %an, %ar : %s\" | less"
+alias gitsf="git diff-tree --no-commit-id --name-only -r"
+     
 # displays a directory tree
 alias tree='tree -Csu'
 
