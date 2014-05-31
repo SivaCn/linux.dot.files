@@ -1,0 +1,180 @@
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/projects"
+alias g="git"
+alias h="history"
+alias j="jobs"
+
+# displays a directory tree
+alias tree='tree -Csu'
+
+# optimize "ls"-command
+if [ "$TERM" != "dumb" ]; then
+
+  # dircolors
+  if [ -s "$HOME/.dircolors" ]; then
+    eval "`dircolors -b $HOME/.dircolors`"
+  else
+    eval "`dircolors -b`"
+  fi
+
+  # use colors for grep
+  alias grep="grep --color=auto"
+  # list all files colorized in long format
+  alias l="ls -lF --color=auto"
+  # use colors
+  alias ls="ls -Fh --color=auto"
+  # displays all files and directories in detail
+  alias la="ls -laFh --color=auto"
+  # displays all files and directories in detail with newest-files at bottom
+  alias lr="ls -latr --color=auto"
+  # displays files and directories in detail
+  alias ll="ls -lFh --color=auto --group-directories-first"
+  # shows the most recently modified files at the bottom of
+  alias llr="ls -lartFh --color=auto --group-directories-first"
+  # list only directories
+  alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
+  # displays files and directories
+  alias dir="ls --color=auto --format=vertical"
+  # displays more information about files and directories
+  alias vdir="ls --color=auto --format=long"
+fi
+
+# enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Gzip-enabled `curl`
+alias gurl='curl --compressed'
+
+# get week number
+alias week='date +%V'
+
+# show the timestamp in the ISO 8601 format
+alias timestamp_iso_8601='date "+%Y%m%dT%H%M%S"'
+
+# stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# create a dir with date from today
+alias mkdd='mkdir $(date +%Y%m%d)'
+
+# workaround for old aptitude version & big sources.list
+alias aptitude_update='export LANG=C ; sudo aptitude update ; export LANG=de_DE.UTF-8' 
+
+# get / check for updates
+alias updates='sudo apt-get update'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip="GET http://ipecho.net/plain && echo"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Colorize these commands if possible
+if which grc &>/dev/null; then
+    alias .cl='grc -es --colour=auto'
+    alias configure='.cl ./configure'
+    alias diff='.cl diff'
+    alias make='.cl make'
+    alias gcc='.cl gcc'
+    alias g++='.cl g++'
+    #alias as='.cl as'
+    #alias gas='.cl gas'
+    alias ld='.cl ld'
+    alias netstat='.cl netstat'
+    alias ping='.cl ping -c 10'
+    alias traceroute='.cl traceroute'
+fi
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# show files and directories (also in sub-dir) that was touched in the last hour
+alias lf='find ./* -ctime -1 | xargs ls -ltr --color'
+
+# ROT13-encode text. Works for decoding, too! ;)
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+# empty the your trash-dir 
+alias emptytrash="rm -rfv ~/.local/share/Trash/*"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# intuitive map function
+# 
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# one of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "$method"="lwp-request -m '$method'"
+done
+
+# make Grunt print stack traces by default
+command -v grunt > /dev/null && alias grunt="grunt --stack"
+
+# shows the corresponding process to ...
+alias 'psx'='ps auxwf | grep'
+
+# shows the process structure to clearly
+alias pst='pstree -Alpha'
+
+# shows all your processes
+alias psmy='ps -ef | grep $USER'
+
+# displays the ports that use the applications
+alias lsport='sudo lsof -i -T -n'
+
+# shows more about the ports on which the applications use
+alias llport='netstat -nape --inet'
+
+# shows the disk usage of a directory legibly
+alias du='du -kh'
+
+# shows the complete disk usage to legibly
+alias df='df -kTh'
+
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+# faster npm for europeans
+command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
