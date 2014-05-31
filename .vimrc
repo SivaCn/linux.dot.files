@@ -63,7 +63,7 @@ vnoremap > >gv  " better indentation
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 "" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
+""au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
