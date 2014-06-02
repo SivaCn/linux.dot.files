@@ -37,7 +37,6 @@ alias df='df -kh'
 
 # The 'ls' family (this assumes you use the GNU ls)
 alias ls='ls -hF --color'               # add colors for filetype recognition
-alias lsf="ls -la | grep -E '^[^d]'"    # list only Files
 alias lx='ls -lXB'                      # sort by extension
 alias lk='ls -lSr'                      # sort by size
 alias la='ls -Al'                       # show hidden files
@@ -99,6 +98,8 @@ if [ "$TERM" != "dumb" ]; then
   alias llr="ls -lartFh --color=auto --group-directories-first"
   # list only directories
   alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
+  # list only Files
+  alias lsf="ls -la | grep -E '^[^d]'"    # list only Files
   # displays files and directories
   alias dir="ls --color=auto --format=vertical"
   # displays more information about files and directories
