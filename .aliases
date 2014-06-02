@@ -104,7 +104,9 @@ if [ "$TERM" != "dumb" ]; then
   fi
 
   # use colors for grep
-  alias grep="grep --color=auto"
+  ## alias grep="grep --color=auto"
+  ## alias grep="grep --color=always"
+  alias grep="grep --color=never"
   # list all files colorized in long format
   alias l="ls -lF --color=auto"
   # use colors
