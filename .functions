@@ -1,4 +1,32 @@
 # -------------------------------------------------------------------
+function ip() # get IP adresses
+{
+    IP=$(/sbin/ifconfig | awk -F "[: ]+" '/inet addr:/ { if ($4 != "127.0.0.1") print $4 }')
+    var=$(printf "%-15s" $IP)
+    echo $IP
+}
+
+# -------------------------------------------------------------------
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]
+}
+
+# -------------------------------------------------------------------
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
+# -------------------------------------------------------------------
+function gittotalstash(){
+  echo `git stash list | wc -l`
+}
+
+# -------------------------------------------------------------------
+function gitstashtop(){
+  echo `git stash list | awk -F':' 'NR==1 {print $NF}' | cut -c-20`
+}
+
+# -------------------------------------------------------------------
 # packen: create a compressed backup + date
 packen()
 {
@@ -61,7 +89,7 @@ battery_color ()
 
 # -------------------------------------------------------------------
 # logssh: establish ssh connection + write a logfile
-logssh() 
+logssh()
 {
   ssh $1 | tee sshlog
 }
@@ -79,7 +107,7 @@ replace()
 
 # -------------------------------------------------------------------
 # calc: Simple calculator
-calc() 
+calc()
 {
   local result=""
   result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
@@ -112,7 +140,7 @@ cdf() # short for `cdfinder`
 
 # -------------------------------------------------------------------
 # targz: Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
-targz() 
+targz()
 {
   local tmpFile="${@%/}.tar"
   local size=0
@@ -144,7 +172,7 @@ targz()
 
 # -------------------------------------------------------------------
 # fs: Determine size of a file or total size of a directory
-fs() 
+fs()
 {
   if du -b /dev/null > /dev/null 2>&1; then
     local arg=-sbh
@@ -161,7 +189,7 @@ fs()
 
 # -------------------------------------------------------------------
 # ff: displays all files in the current directory (recursively)
-ff() 
+ff()
 {
   find . -type f -iname '*'$*'*' -ls
 }
@@ -204,10 +232,10 @@ file_backup()
 
 # -------------------------------------------------------------------
 # file_information: output information to a file
-file_information() 
+file_information()
 {
   if [ $1 ]; then
-    if [ -z $1 ]; then 
+    if [ -z $1 ]; then
       echo "$1: not found"
       return
     fi
@@ -311,7 +339,7 @@ digga()
 
 # -------------------------------------------------------------------
 # escape: Escape UTF-8 characters into their 3-byte format
-escape() 
+escape()
 {
   printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
   # print a newline unless we’re piping the output to another program
@@ -322,7 +350,7 @@ escape()
 
 # -------------------------------------------------------------------
 # unidecode: Decode \x{ABCD}-style Unicode escape sequences
-unidecode() 
+unidecode()
 {
   perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
   # print a newline unless we’re piping the output to another program
@@ -333,7 +361,7 @@ unidecode()
 
 # -------------------------------------------------------------------
 # codepoint: Get a character’s Unicode code point
-codepoint() 
+codepoint()
 {
   perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
   # print a newline unless we’re piping the output to another program
@@ -381,7 +409,7 @@ getcertnames()
 # -------------------------------------------------------------------
 # note: add a note to the ~/notes.txt file
 # usage -> `note 'title' 'body'` or `echo 'body' | note`
-note() 
+note()
 {
   local title
   local body
@@ -399,7 +427,7 @@ note()
 # -------------------------------------------------------------------
 # gi: Install Grunt plugins and add them as `devDependencies` to `package.json`
 # Usage -> `gi contrib-watch contrib-uglify zopfli`
-gi() 
+gi()
 {
   npm install --save-dev ${*/#/grunt-}
 }
@@ -407,7 +435,7 @@ gi()
 # -------------------------------------------------------------------
 # `m`: with no arguments opens the current directory in TextMate, otherwise
 # opens the given location
-m() 
+m()
 {
   if [ $# -eq 0 ]; then
     mate .
@@ -419,7 +447,7 @@ m()
 # -------------------------------------------------------------------
 # `s`: with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
-s() 
+s()
 {
   if [ $# -eq 0 ]; then
     subl .
@@ -431,7 +459,7 @@ s()
 # -------------------------------------------------------------------
 # `a`: with no arguments opens the current directory in Atom Editor, otherwise
 # opens the given location
-a() 
+a()
 {
   if [ $# -eq 0 ]; then
     atom .
@@ -443,7 +471,7 @@ a()
 # -------------------------------------------------------------------
 # `v`: with no arguments opens the current directory in Vim, otherwise opens the
 # given location
-v() 
+v()
 {
   if [ $# -eq 0 ]; then
     vim .
@@ -455,7 +483,7 @@ v()
 # -------------------------------------------------------------------
 # `o`: with no arguments opens current directory, otherwise opens the given
 # location
-o() 
+o()
 {
   if [ $# -eq 0 ]; then
     open .
@@ -467,7 +495,7 @@ o()
 # -------------------------------------------------------------------
 # `np`: with an optional argument `patch`/`minor`/`major`/`<version>`
 # defaults to `patch`
-np() 
+np()
 {
   git pull --rebase && \
   rm -rf node_modules && \
@@ -484,7 +512,7 @@ np()
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-tre() 
+tre()
 {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }

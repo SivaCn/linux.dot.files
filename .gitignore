@@ -3,7 +3,8 @@
 
 # Include some Specific files or Directories
 !.bashrc
-!.bashrc
+!.aliases
+!.functions
 !.conkyrc
 !.gitconfig
 !.login

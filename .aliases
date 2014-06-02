@@ -19,8 +19,6 @@
 # tmux settings, to keep vim color modes
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias con='cat contacts | grep '
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -29,18 +27,10 @@ alias mv='mv -i'
 alias l='ls --group-directories-first'
 alias h='cd ~'
 alias untar='tar -xvzf'
-alias jiva='cd ~/Jiva/sentinel_instanceUsingMsgQ'
-alias jivap='cd ~/Jiva/sentinel_instanceUsingMsgQ/Products'
-alias jivaz='cd ~/Jiva/sentinel_instanceUsingMsgQ/Products/ZeSentinel'
 
 alias j='jobs -l'
 alias r='rlogin'
 alias which='type -all'
-alias ..='cd ..'
-alias path='echo -e ${PATH//:/\\n}'
-alias print='/usr/bin/lp -o nobanner -d $LPDEST'   # Assumes LPDEST is defined
-alias pjet='enscript -h -G -fCourier9 -d $LPDEST'  # Pretty-print using enscript
-alias background='xv -root -quit -max -rmode 5' # put a picture in the background
 alias vi='vim'
 alias du='du -h'
 alias df='df -kh'
@@ -79,17 +69,6 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
-alias g="git"
-alias h="history"
-alias j="jobs"
-alias gitl="git log --pretty=format:\"%h - %an, %ar : %s\" | less"
-alias gitsf="git diff-tree --no-commit-id --name-only -r"
-     
 # displays a directory tree
 alias tree='tree -Csu'
 
@@ -107,8 +86,6 @@ if [ "$TERM" != "dumb" ]; then
   ## alias grep="grep --color=auto"
   ## alias grep="grep --color=always"
   alias grep="grep --color=never"
-  # list all files colorized in long format
-  alias l="ls -lF --color=auto"
   # use colors
   alias ls="ls -Fh --color=auto"
   # displays all files and directories in detail
@@ -146,13 +123,13 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias mkdd='mkdir $(date +%Y%m%d)'
 
 # workaround for old aptitude version & big sources.list
-alias aptitude_update='export LANG=C ; sudo aptitude update ; export LANG=de_DE.UTF-8' 
+alias aptitude_update='export LANG=C ; sudo aptitude update ; export LANG=de_DE.UTF-8'
 
 # get / check for updates
 alias updates='sudo apt-get update'
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias internetip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="GET http://ipecho.net/plain && echo"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
@@ -163,22 +140,6 @@ alias whois="whois -h whois-servers.net"
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# Colorize these commands if possible
-if which grc &>/dev/null; then
-    alias .cl='grc -es --colour=auto'
-    alias configure='.cl ./configure'
-    alias diff='.cl diff'
-    alias make='.cl make'
-    alias gcc='.cl gcc'
-    alias g++='.cl g++'
-    #alias as='.cl as'
-    #alias gas='.cl gas'
-    alias ld='.cl ld'
-    alias netstat='.cl netstat'
-    alias ping='.cl ping -c 10'
-    alias traceroute='.cl traceroute'
-fi
 
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
@@ -201,7 +162,7 @@ alias lf='find ./* -ctime -1 | xargs ls -ltr --color'
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
-# empty the your trash-dir 
+# empty the your trash-dir
 alias emptytrash="rm -rfv ~/.local/share/Trash/*"
 
 # URL-encode strings
@@ -212,7 +173,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias badge="tput bel"
 
 # intuitive map function
-# 
+#
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
