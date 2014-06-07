@@ -63,7 +63,7 @@ vnoremap > >gv  " better indentation
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 "" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-""au InsertLeave * match ExtraWhitespace /\s\+$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -71,6 +71,24 @@ filetype off
 filetype plugin indent on
 syntax on
 
+" For highlighted numbers:
+let python_highlight_numbers = 1
+"
+" For highlighted builtin functions:
+let python_highlight_builtins = 1
+"
+" For highlighted standard exceptions:
+let python_highlight_exceptions = 1
+"
+" Highlight erroneous whitespace:
+let python_highlight_space_errors = 1
+"
+" If you want all possible Python highlighting (the same as setting the
+" preceding options):
+let python_highlight_all = 1
+
+" -------- Python Folding -----------
+set foldmethod=indent
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -794,4 +812,5 @@ if has('statusline')
 endif
 "
 "
+
 " END OF STATUS LINE CONFIGURATION.
