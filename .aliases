@@ -19,6 +19,12 @@
 # tmux settings, to keep vim color modes
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Share any any directory Recursively through Pytho SimpleHTTPServer
+alias shareme='sudo python -m SimpleHTTPServer 911'
+
+# Test Python file against the Syntax Error
+alias pycompile='python -m py_compile'
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
