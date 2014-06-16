@@ -3,9 +3,6 @@ source ~/.aliases
 source ~/.exports
 source ~/.functions
 
-
-
-
 shopt -s extglob 2>/dev/null
 set -o noclobber
 
