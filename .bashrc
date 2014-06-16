@@ -3,6 +3,9 @@ source ~/.aliases
 source ~/.exports
 source ~/.functions
 
+
+
+
 shopt -s extglob 2>/dev/null
 set -o noclobber
 
@@ -34,7 +37,7 @@ fi
 #PS1='\n┏━━┅◉  IP ➤ \[\e[1;37m\]$(ip)\[\e[0m\] ◉━━━┅◉  Git Branch ➤ \[\e[1;37m\]$(parse_git_branch)\[\e[0m\] ◉━━━┅◉  Stash ➤ \[\e[1;37m\]$(gittotalstash) (\[\e[0m\]$(gitstashtop)...\[\e[1;37m\])\[\e[0m\] \n┣┅◉  Current Dir ➤ \[\e[1;37m\]$(pwd)\[\e[0m\] \n┗━┅◉  User ➤\[\e[1;37m\] \u \[\e[0m\]◉━━┅◉> '
 #PS1='\n┏━TIME┅⟦ \[\e[1;37m\]\@\[\e[0m\] ⟧ ◉━━IP┅⟦ \[\e[1;37m\]$(ip)\[\e[0m\] ⟧ ◉━━BRANCH┅⟦ \[\e[1;37m\]$(parse_git_branch)\[\e[0m\] ⟧ ◉━━STASH┅⟦ \[\e[1;37m\]$(gittotalstash)\[\e[0m\] ⟧ \n┣━PWD┅⟦ \[\e[1;37m\]\w\[\e[0m\] ⟧ \n┗━USER┅⟦ \[\e[1;37m\]\u\[\e[0m\] ⟧ ◉━━┅⟦ '
 #PS1='\n\[\e[1;37m\]_dict\[\e[0m\] = \[\e[1;37m\]{\[\e[0m\]\"USER\": \[\e[1;37m\]\u\[\e[0m\], \"IP\": \[\e[1;37m\]$(ip)\[\e[0m\], \"TIME\": \[\e[1;37m\]\@\[\e[0m\], \"GIT_BRANCH\": \[\e[1;37m\]$(parse_git_branch)\[\e[0m\], \"STASH\": \[\e[1;37m\]$(gittotalstash)\[\e[0m\], \n         \"PWD\": \[\e[1;37m\]$(pwd)\[\e[0m\]\n         \[\e[1;37m\]}\[\e[0m\] '
-PS1="\n\[\e[35;1m\]{\[\e[35;0m\]USER: \[\e[37;1m\]\u\[\e[35;1m\]}---⪼  \[\e[35;1m\]{\[\e[35;0m\]IP: \[\e[37;1m\]\$(ip)\[\e[35;1m\]}---⪼  {\[\e[35;0m\]BRANCH: \[\e[37;1m\]\$(parse_git_branch)\[\e[35;1m\], \[\e[35;0m\]STASH: \[\e[37;1m\]\$(gittotalstash)\[\e[35;1m\], \[\e[35;0m\]STASH_TOP: \[\e[37;1m\]\$(gitstashtop)\[\e[35;1m\]} \n{\[\e[35;0m\]PWD: \[\e[37;1m\]\$(pwd)\[\e[35;1m\]}\n-⪼  \[\e[0m\]"
+PS1="\n\[\e[35;1m\]{\[\e[35;0m\]IP: \[\e[37;1m\]\$(ip)\[\e[35;1m\]}---⪼  {\[\e[35;0m\]Git Branch: \[\e[37;1m\]\$(git-branch-name)\$(git-dirty)\$(git-unpushed)\[\e[35;1m\], \[\e[35;0m\]Stashes: \[\e[37;1m\]\$(gittotalstash)\[\e[35;1m\]} \n{\[\e[35;0m\]PWD: \[\e[37;1m\]\w\[\e[35;1m\]}\n-⪼  \[\e[0m\]"
 
 case "$TERM" in
   screen*|xterm*|rxvt*|Eterm*|kterm*|dtterm*|ansi*|cygwin*)
