@@ -234,6 +234,20 @@ elseif has("mac")
   set backupskip+=/private/tmp/*
 endif
 
+" ----------------------------------------------------------------------
+"  USEFUL SETTINGS
+" ----------------------------------------------------------------------
+set scrolloff=8
+
+" Following are some useful mappings to make search results appear in the
+" middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 " Plugin Settings {{{2
 
 if v:version >= 700
