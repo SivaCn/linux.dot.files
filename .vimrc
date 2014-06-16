@@ -550,6 +550,9 @@ if (&t_Co > 2 || has("gui_running")) && has("syntax")
     endif
   endif
 
+" Set Transparent Background
+hi Normal ctermfg=NONE ctermbg=NONE
+
   augroup RCVisual
     autocmd!
 
