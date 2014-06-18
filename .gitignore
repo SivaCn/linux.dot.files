@@ -1,5 +1,6 @@
-# Exclude all files and Directories
+# Exclude all files from the Home Directory
 \.*
+*\.*
 
 # Include some Specific files or Directories
 !.bashrc
