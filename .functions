@@ -160,7 +160,7 @@ calc()
 
 # -------------------------------------------------------------------
 # mkd: Create a new directory and enter it
-mkd() {
+function mkcd() {
   mkdir -p "$@" && cd "$@"
 }
 
