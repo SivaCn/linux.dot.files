@@ -19,6 +19,9 @@
 # tmux settings, to keep vim color modes
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Terminator
+alias terminator="terminator -b -m"
+
 # Share any any directory Recursively through Pytho SimpleHTTPServer
 alias shareme='sudo python -m SimpleHTTPServer 911'
 
