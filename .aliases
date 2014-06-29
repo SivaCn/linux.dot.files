@@ -56,12 +56,12 @@ alias tree='tree -Cs'                   # nice alternative to 'ls'
 
 
 # tailoring 'less'
-alias more='less'
-export PAGER=less
-export LESSCHARSET='latin1'
-export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-' # Use this if lesspipe.sh exists
-export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
-:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+## alias more='less'
+## export PAGER=less
+## export LESSCHARSET='latin1'
+## export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-' # Use this if lesspipe.sh exists
+## export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
+## :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
 # spelling typos - highly personnal :-)
 alias xs='cd'
@@ -146,84 +146,84 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
+## alias whois="whois -h whois-servers.net"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+## alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+## alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
+## command -v hd > /dev/null || alias hd="hexdump -C"
 
 # OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
+## command -v md5sum > /dev/null || alias md5sum="md5"
 
 # OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
+## command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+## alias c="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+## alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # show files and directories (also in sub-dir) that was touched in the last hour
 alias lf='find ./* -ctime -1 | xargs ls -ltr --color'
 
 # ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+## alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # empty the your trash-dir
 alias emptytrash="rm -rfv ~/.local/share/Trash/*"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+## alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)
-alias badge="tput bel"
+## alias badge="tput bel"
 
 # intuitive map function
 #
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
-alias map="xargs -n1"
+## alias map="xargs -n1"
 
 # one of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "$method"="lwp-request -m '$method'"
-done
+## for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+##   alias "$method"="lwp-request -m '$method'"
+## done
 
 # make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
+## command -v grunt > /dev/null && alias grunt="grunt --stack"
 
 # shows the corresponding process to ...
 alias 'psx'='ps auxwf | grep'
 
 # shows the process structure to clearly
-alias pst='pstree -Alpha'
+## alias pst='pstree -Alpha'
 
 # shows all your processes
-alias psmy='ps -ef | grep $USER'
+## alias psmy='ps -ef | grep $USER'
 
 # displays the ports that use the applications
-alias lsport='sudo lsof -i -T -n'
+## alias lsport='sudo lsof -i -T -n'
 
 # shows more about the ports on which the applications use
-alias llport='netstat -nape --inet'
+## alias llport='netstat -nape --inet'
 
 # shows the disk usage of a directory legibly
-alias du='du -kh'
+## alias du='du -kh'
 
 # shows the complete disk usage to legibly
-alias df='df -kTh'
+## alias df='df -kTh'
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+## alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+## alias reload="exec $SHELL -l"
 
 # faster npm for europeans
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
+## command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
