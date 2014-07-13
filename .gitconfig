@@ -94,3 +94,6 @@
 
 #[push]
 #  default = matching
+[user]
+	email = cnsiva.in@gmail.com
+	name = Siva Cn
