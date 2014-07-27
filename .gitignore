@@ -3,17 +3,17 @@
 *\.*
 
 # Include some Specific files or Directories
-.vim/
-.bash_profile
-.bashrc
-.functions
-.gitconfig
-.gitignore
-.inputrc
-.login
-.logout
-.tmux.conf
-.vim_tips1
-.vim_tips2
-.vimrc
-README.md
+!.vim/
+!.bash_profile
+!.bashrc
+!.functions
+!.gitconfig
+!.gitignore
+!.inputrc
+!.login
+!.logout
+!.tmux.conf
+!.vim_tips1
+!.vim_tips2
+!.vimrc
+!README.md
