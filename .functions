@@ -7,7 +7,8 @@
 # }
 
 function ipaddr1(){
-  IP=$(ip addr show | grep -e "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10)
+  # IP=$(ip addr show | grep -e "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10)
+  IP=$(ip addr show | sed 's/\// /g' | sed -e 's/^\ *//g' | grep -E "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10)
   echo $IP
 }
 
@@ -34,6 +35,12 @@ function gitstashtop(){
 function git-branch-name
 {
     echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+    # echo $(git branch -vv | grep -E '^\*' | awk -F' ' '{print $2 " Tracks " $4}')
+}
+
+function branch-tracks
+{
+  echo $(git branch -vv | grep -E '^\*' | awk -F' ' '{print $4}' | tr -d '[]:')
 }
 
 function git-dirty {
