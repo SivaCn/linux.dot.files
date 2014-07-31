@@ -8,7 +8,7 @@
 
 function ipaddr1(){
   # IP=$(ip addr show | grep -e "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10)
-  IP=$(ip addr show | sed 's/\// /g' | sed -e 's/^\ *//g' | grep -E "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10)
+  IP=$(ip addr show | sed 's/\// /g' | sed -e 's/^\ *//g' | grep -E "^\s*inet " | grep -v '127.0.0.1' | awk -F' ' '{print $2}' | xargs -n 10 | sed 's/ /, /g')
   echo $IP
 }
 
