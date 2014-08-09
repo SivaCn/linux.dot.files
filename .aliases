@@ -1,0 +1,2 @@
+# List files/directories which are modified today
+ls -al --time-style=+%D | grep `date +%D`
