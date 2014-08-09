@@ -1,5 +1,6 @@
 ## Sourcing External Configs
 source ~/.functions
+source ~/.aliases
 
 shopt -s extglob 2>/dev/null
 set -o noclobber
