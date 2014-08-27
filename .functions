@@ -40,7 +40,7 @@ function git-branch-name
 
 function branch-tracks
 {
-  echo $(git branch -vv | grep -E '^\*' | awk -F' ' '{print $4}' | tr -d '[]:')
+  echo $(git branch -vv 2>/dev/null | grep -E '^\*' | awk -F' ' '{print " << "$4}' | tr -d '[]:')
 }
 
 function git-dirty {
