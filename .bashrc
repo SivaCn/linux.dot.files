@@ -28,7 +28,8 @@ if [ -x /usr/bin/tty -o -x /usr/local/bin/tty ]; then
   ttyat="`tty|sed -e s,^/dev/,,`@"
 fi
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDir=${DIR:0:9}...${DIR:${#DIR}-22}; else CurDir=$DIR; fi'
+#PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDir=${DIR:0:9}...${DIR:${#DIR}-22}; else CurDir=$DIR; fi'
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDir=...${DIR:${#DIR}-20}; else CurDir=$DIR; fi'
 
 # PS1='\n┏━\[\e[7m\]┅◉ \[\e[1;37m\] <Machine> ◉━\[\e[0m\]━━\[\e[7m\]┅◉ @ \[\e[1;37m\] $(ip) ◉━\[\e[0m\]━━\[\e[7m\]┅◉ λ \[\e[1;37m\] $(parse_git_branch) \[\e[7m\] ◉━\[\e[0m\]━━\[\e[7m\]┅◉ ≣ \[\e[1;37m\] $(gittotalstash) ➤ $(gitstashtop) ◉ \[\e[1;37m\]\[\e[0m\] \n┣┅◉  \[\033[1;34m\] `pwd` \[\e[0m\] \n┗\[\e[7m\]┅◉ 웃 \[\e[1;37m\] \u ◉━\[\e[0m\]━> '
 # PS1='\n┏━━┅◉  IP ➤ \[\e[1;37m\]$(ip)\[\e[0m\] ◉━━━┅◉  Git Branch ➤ \[\e[1;37m\]$(parse_git_branch)\[\e[0m\] ◉━━━┅◉  Stash ➤ \[\e[1;37m\]$(gittotalstash) (\[\e[0m\]$(gitstashtop)...\[\e[1;37m\])\[\e[0m\] \n┣┅◉  Current Dir ➤ \[\e[1;37m\]$(pwd)\[\e[0m\] \n┗━┅◉  User ➤\[\e[1;37m\] \u \[\e[0m\]◉━━┅◉ '
@@ -42,7 +43,7 @@ PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDi
 
 # PS1="\n\[\033[1;34m\]\342\226\210\342\226\210 \u @ \$(custom_pwd) \n `if [ $? = 0 ]; then echo "\[\033[1;31m\]\342\226\210\342\226\210 \[\033[0;39m\]"; else echo "\[\033[01;31m\]✘"; fi`"
 # PS1='\n`if [ $? = 0 ]; then echo "\[\e[0;37m\]┏━┅◉\[\e[0m\] \[\e[1;34m\]\u\[\e[0m\] \[\e[0;37m\]◉━┅◉\[\e[0m\] \[\e[0;34m\]$(custom_pwd)\[\e[0m\] \[\e[0;37m\]◉━┅◉ \[\e[0m\] \[\e[1;34m\]$(git-branch-name)\[\e[0m\] \[\e[0;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[0;37m\]┗━┅┅◉ \[\e[1;34m\]\@\[\e[0m\] \[\033[0;37m\]⪼  \[\e[0m\]"; else echo "\[\033[0;31m\]┏━┅◉\[\e[0m\] \[\e[1;34m\]\u\[\e[0m\] \[\033[0;31m\]◉━┅◉\[\e[0m\] \[\e[0;34m\]$(custom_pwd)\[\e[0m\] \[\033[0;31m\]◉━┅◉ \[\e[0m\] \[\e[1;34m\]$(git-branch-name)\[\e[0m\] \[\e[0;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[0;31m\]┗━┅┅◉ \[\e[1;34m\]\@\[\e[0m\] \[\033[0;31m\]⪼  \[\e[0m\]"; fi`'
-PS1='\n`if [ $? = 0 ]; then echo "\[\033[1;34m\]\342\226\210\342\226\210\[\e[0m\] \[\e[1;34m\]\u\[\e[0m\] \[\033[1;34m\]⪼\[\e[0m\] \[\e[0;34m\]${DIR}\[\e[0m\] \[\033[1;34m\]⪼\[\e[0m\] \[\e[1;34m\]$(git-branch-name)\[\e[0m\] \[\e[0;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[1;34m\]\342\226\210\342\226\210\[\e[1;34m\] \@\[\e[0m\] \[\033[1;34m\]⪼  \[\e[0m\]"; else echo "\[\033[0;31m\]\342\226\210\342\226\210\[\e[0m\] \[\e[1;34m\]\u\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[0;34m\]${DIR}\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[1;34m\]$(git-branch-name)\[\e[0m\] \[\e[0;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[0;31m\]\342\226\210\342\226\210 \[\e[1;34m\]\@\[\e[0m\] \[\033[1;31m\]⪼  \[\e[0m\]"; fi`'
+PS1='\n`if [ $? = 0 ]; then echo "\[\033[1;34m\]\342\226\210\342\226\210\[\e[0m\] \[\e[32;1m\]\u\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[1;34m\]${CurDir}\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[32;1m\]$(git-branch-name)\[\e[0m\] \[\e[1;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[1;34m\]\342\226\210\342\226\210\[\e[1;34m\] \@\[\e[0m\] \[\033[1;31m\]⪼  \[\e[0m\]"; else echo "\[\033[0;31m\]\342\226\210\342\226\210\[\e[0m\] \[\e[32;1m\]\u\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[1;34m\]${CurDir}\[\e[0m\] \[\033[1;31m\]⪼\[\e[0m\] \[\e[32;1m\]$(git-branch-name)\[\e[0m\] \[\e[1;34m\]$(branch-tracks)\[\e[0m\] \n\[\033[0;31m\]\342\226\210\342\226\210 \[\e[1;34m\]\@\[\e[0m\] \[\033[1;31m\]⪼  \[\e[0m\]"; fi`'
 
 case "$TERM" in
   screen*|xterm*|rxvt*|Eterm*|kterm*|dtterm*|ansi*|cygwin*)
