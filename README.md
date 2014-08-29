@@ -7,11 +7,18 @@
 
 
 
+
+
 How does my Terminal Look like ?
 
 
 ![alt tag](https://raw.githubusercontent.com/SivaCn/linux.dot.files/master/.screenshots/Terminal.png)
 
+
+
+How does my vim look like ?
+
+![alt tag](https://raw.githubusercontent.com/SivaCn/linux.dot.files/master/.screenshots/vim.png)
 
 Dot-Files
 =========
