@@ -38,9 +38,10 @@ Install
          $ git remote add dotfiles https://github.com/SivaCn/linux.dot.files.git
          $ git fetch dotfiles
          
-         These commands will link to the repo, and make ready to go, before proceeding further,
-         you must either backup all your existing dotfiles or remove them with the install.sh script
-         which can be found inside scripts directory
+         These commands will link to the repo, and make ready to go, before proceeding
+         further, you must either backup all your existing dotfiles or remove them with
+         the cleanup.sh script which can be found inside scripts directory
+         
          for removing the existing dotfiles, do
          $ sh scripts/cleanup.sh
          
