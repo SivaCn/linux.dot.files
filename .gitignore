@@ -1,6 +1,7 @@
 # Exclude all files from the Home Directory
-\.*
-*\.*
+#\.*
+#*\.*
+!.screenshots/
 
 # Include some Specific files or Directories
 !.vim/
