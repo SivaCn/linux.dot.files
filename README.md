@@ -1,4 +1,5 @@
 
+
          _ _                       _       _      __ _ _
         | (_)_ __  _   ___  __  __| | ___ | |_   / _(_) | ___  ___
         | | | '_ \| | | \ \/ / / _` |/ _ \| __| | |_| | |/ _ \/ __|
@@ -7,6 +8,10 @@
 
 
 
+
+
+dotfiles
+========
 
 
 How does my Terminal Look like ?
@@ -20,17 +25,25 @@ How does my vim look like ?
 
 ![alt tag](https://raw.githubusercontent.com/SivaCn/linux.dot.files/master/.screenshots/vim.png)
 
-Dot-Files
-=========
+
+Install
+-------
 
     A Single Repository that has the needed dot files for Linux.
 
-    Usage:
-        Just clone this repo in the user's home directory.
+    Steps to configure:
+    
+         $ cd ~
+         $ git init
+         $ git remote add dotfiles https://github.com/SivaCn/linux.dot.files.git
+         $ git fetch dotfiles
+         
+         These commands will link to the repo, and make ready to go, before proceeding further,
+         you must either backup all your existing dotfiles or remove them with the install.sh script
+         which can be found inside scripts directory
+         for removing the existing dotfiles, do
+         $ sh scripts/cleanup.sh
+         
+         $ git rebase dotfiles/master
 
-
-    For cleaning Up the Existing dotfiles:
-
-        $ cat .gitignore | awk -F'!' '{print $2}' | uniq | xargs -n 1 rm -vrf
-
-    ## This will delete the existing specified dotfiles in .gitignore
+    That's it you are Done !
