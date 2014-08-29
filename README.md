@@ -46,5 +46,3 @@ Install
          $ source ~/.bashrc
 
     That's it you are Done !
-
-You can share your experience as well
