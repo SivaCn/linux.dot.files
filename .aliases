@@ -1,2 +1,75 @@
 # List files/directories which are modified today
 alias ld="ls -al --time-style=+%D | grep `date +%D`"
+
+alias fhere="find . -name "
+
+alias free="free -mt"
+
+alias ps="ps -auxf"
+alias mkdir="mkdir -p"
+
+alias df="df -Tha --total"
+alias du="du -ach | sort -h"
+
+alias l="ls -CF --group-directories-first --color"
+alias ll="ls -lF --group-directories-first --color"
+alias ls="ls -CF --group-directories-first --color"
+alias lsl="ls -lhFA --group-directories-first"
+
+alias c='clear;ls'
+alias cls='clear;ls'
+
+alias serve="python -m SimpleHTTPServer"
+
+alias vi="vim"
+
+alias cp="cp -iv"     # interactive, verbose
+alias rm="rm -i"      # interactive
+alias mv="mv -iv"     # interactive, verbose
+alias grep="grep -i"  # ignore case
+
+# cd .. aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+alias ..........='cd ../../../../../../../../..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias .6='cd ../../../../../..'
+alias .7='cd ../../../../../../..'
+alias .8='cd ../../../../../../../..'
+alias .9='cd ../../../../../../../../..'
+alias .10='cd ../../../../../../../../../..'
+alias .11='cd ../../../../../../../../../../..'
+
+# ls look into directories above
+alias l1='ls -l ..'
+alias l2='ls -l ../..'
+alias l3='ls -l ../../..'
+alias l4='ls -l ../../../..'
+
+# Typp Errors
+alias sl="ls"
+alias cd..="cd .."
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias moew='more'
+alias kk='ll'
+
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5'
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s.2'
+
+alias scanport='netstat -tulanp'
+
+# System Power Cycles
+alias shutdown="sudo shutdown -h now"
