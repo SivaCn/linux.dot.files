@@ -62,8 +62,8 @@ vnoremap > >gv  " better indentation
 
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
-"" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"" au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -251,43 +251,43 @@ nnoremap g# g#zz
 " Plugin Settings {{{2
 
 if v:version >= 700
-let g:is_bash = 1
-let g:sh_noisk = 1
-let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh', 'sh']
-let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
-let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
+  let g:is_bash = 1
+  let g:sh_noisk = 1
+  let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh', 'sh']
+  let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
+  let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 
-let g:CSApprox_verbose_level = 0
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:NERDTreeHijackNetrw = 0
-let g:ragtag_global_maps = 1
-let g:space_disable_select_mode = 1
-let g:VCSCommandDisableMappings = 1
-let g:showmarks_enable = 0
-let g:surround_{char2nr('-')} = "<% \r %>"
-let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('8')} = "/* \r */"
-let g:surround_{char2nr('s')} = " \r"
-let g:surround_{char2nr('^')} = "/^\r$/"
-let g:surround_indent = 1
+  let g:CSApprox_verbose_level = 0
+  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+  let g:NERDTreeHijackNetrw = 0
+  let g:ragtag_global_maps = 1
+  let g:space_disable_select_mode = 1
+  let g:VCSCommandDisableMappings = 1
+  let g:showmarks_enable = 0
+  let g:surround_{char2nr('-')} = "<% \r %>"
+  let g:surround_{char2nr('=')} = "<%= \r %>"
+  let g:surround_{char2nr('8')} = "/* \r */"
+  let g:surround_{char2nr('s')} = " \r"
+  let g:surround_{char2nr('^')} = "/^\r$/"
+  let g:surround_indent = 1
 
-function! s:try(cmd, default)
-  if exists(':' . a:cmd) && !v:count
-    let tick = b:changedtick
-    exe a:cmd
-    if tick == b:changedtick
-      execute 'normal! '.a:default
+  function! s:try(cmd, default)
+    if exists(':' . a:cmd) && !v:count
+      let tick = b:changedtick
+      exe a:cmd
+      if tick == b:changedtick
+        execute 'normal! '.a:default
+      endif
+    else
+      execute 'normal! '.v:count.a:default
     endif
-  else
-    execute 'normal! '.v:count.a:default
-  endif
-endfunction
+  endfunction
 
-nnoremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
-nnoremap <silent>  J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
-nnoremap <silent> gS :SplitjoinSplit<CR>
-nnoremap <silent>  S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
-nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
+  nnoremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
+  nnoremap <silent>  J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
+  nnoremap <silent> gS :SplitjoinSplit<CR>
+  nnoremap <silent>  S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
+  nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 endif
 
@@ -555,6 +555,7 @@ if (&t_Co > 2 || has("gui_running")) && has("syntax")
   else
     syntax on
   endif
+  set listchars=tab:>\ ,trail:\ ,extends:>,precedes:<
   set list
   if !exists('g:colors_name')
     if filereadable(expand("~/.vim/colors/wombat256mod.vim"))
@@ -564,8 +565,8 @@ if (&t_Co > 2 || has("gui_running")) && has("syntax")
     endif
   endif
 
-" Set Transparent Background
-hi Normal ctermfg=NONE ctermbg=NONE
+  " Set Transparent Background
+  hi Normal ctermfg=NONE ctermbg=NONE
 
   augroup RCVisual
     autocmd!
