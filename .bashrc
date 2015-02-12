@@ -5,6 +5,7 @@ source ~/.aliases
 shopt -s extglob 2>/dev/null
 set -o noclobber
 
+export VISUAL=vim
 export HISTCONTROL=ignoredups
 unset HISTFILE
 
