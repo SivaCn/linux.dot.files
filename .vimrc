@@ -65,6 +65,9 @@ vnoremap > >gv  " better indentation
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
+" Highlight the Text Excceding column 80 in RED.
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 filetype off
