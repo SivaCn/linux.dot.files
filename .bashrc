@@ -6,7 +6,11 @@ shopt -s extglob 2>/dev/null
 set -o noclobber
 
 export VISUAL=vim
-export HISTCONTROL=ignoredups
+# Not to store any history
+# export HISTFILE=/dev/null
+# To ignore history duplicates
+# export HISTCONTROL=ignoredups
+export HISTCONTROL=ignorespace
 unset HISTFILE
 
 [ "$UID" ] || UID=`id -u`
