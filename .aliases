@@ -66,6 +66,7 @@ alias kk='ll'
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
+
 # Do not wait interval 1 second, go fast #
 alias fastping='ping -c 100 -s.2'
 
@@ -73,3 +74,12 @@ alias scanport='netstat -tulanp'
 
 # System Power Cycles
 alias shutdown="sudo shutdown -h now"
+
+# Copy SSH public key
+alias cbssh="cbf ~/.ssh/id_rsa.pub"
+
+# Copy current working directory
+alias cbwd="pwd | cb"
+
+# Copy most recent command in bash history
+alias cbhs="cat $HISTFILE | tail -n 1 | cb"

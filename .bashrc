@@ -73,4 +73,4 @@ unset hostcolor usercolor dircolor ttybracket ttyat
 #------------------------------------
 # GIT auto completion
 #------------------------------------
-# source /etc/bash_completion.d/git
+source ~/.scripts/git_auto_complete.bash
