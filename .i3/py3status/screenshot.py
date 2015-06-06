@@ -30,7 +30,7 @@ class Py3status:
     """
     # available configuration parameters
     cache_timeout = 5
-    save_path = '%s%s' % (os.environ['HOME'], '/Pictures/')
+    save_path = '%s%s' % (os.environ['HOME'], '/Pictures/ScreenShots/')
     file_length = 4
     upload_path = "/files"
     upload_server = 'puzzledge.org'
@@ -44,8 +44,8 @@ class Py3status:
 
         file_name = self._filename_generator(self.file_length)
 
-        command = '%s %s/%s%s' % ('gnome-screenshot -f', self.save_path,
-                                  file_name, '.jpg')
+        #command = '%s %s/%s%s' % ('gnome-screenshot -f', self.save_path, file_name, '.jpg')
+        command = '%s %s/%s%s' % ('scrot', self.save_path, file_name, '.jpg')
 
         subprocess.Popen(command.split())
 
