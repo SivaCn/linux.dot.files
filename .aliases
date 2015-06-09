@@ -12,7 +12,7 @@ alias df="df -Tha --total"
 alias du="du -ach | sort -h"
 
 alias l="ls -CF --group-directories-first --color"
-alias ll="ls -lF --group-directories-first --color"
+alias ll="ls -lrthF --group-directories-first --color"
 alias ls="ls -CF --group-directories-first --color"
 alias lsl="ls -lhFA --group-directories-first"
 
