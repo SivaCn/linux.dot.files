@@ -834,4 +834,11 @@ endif
 "
 "
 
+" Custom Key bindings
+map <Leader>p :call InsertLine()<CR>
+
+function! InsertLine()
+  let trace = expand("import pdb; pdb.set_trace()")
+  execute "normal O".trace
+endfunction
 " END OF STATUS LINE CONFIGURATION.
