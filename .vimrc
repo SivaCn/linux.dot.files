@@ -119,6 +119,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Don't create temporary files
+set nobackup
+set noswapfile
 
 " Make search case insensitive
 set hlsearch
