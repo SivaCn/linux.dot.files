@@ -34,6 +34,10 @@ zE deletes all folds.
 /\D\d\d\d\d\D               : Search for exactly 4 digit numbers
 /\<\d\{4}\>                 : same thing
 /\([^0-9]\|^\)%.*%          : Search for absence of a digit or beginning of line
+
+" sort lines based on the line length:                                                         
+:'<,'> ! awk '{ print length(), $0 | "sort -n | cut -d\\  -f2-" }'
+
 " finding empty lines
 /^\n\{3}                    : find 3 empty lines
 /^str.*\nstr                : find 2 successive lines starting with str
