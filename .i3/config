@@ -37,7 +37,7 @@ exec feh --bg-center ~/.dependents/wallpaper.png
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec terminator -m -b
 
 # kill focused window
 bindsym $mod+Shift+q kill
