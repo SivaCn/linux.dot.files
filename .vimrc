@@ -70,7 +70,7 @@ if v:version >= 703
     set undofile
 
     " set colorcolumn=79,99,119 "mark the ideal max text width
-    let &colorcolumn="79,99,,".join(range(119,999),",")
+    let &colorcolumn="79,99,".join(range(119,999),",")
 endif
 
 "default indent settings
