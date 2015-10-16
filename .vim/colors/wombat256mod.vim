@@ -94,4 +94,7 @@ hi! link FoldColumn		Folded
 hi! link CursorColumn	CursorLine
 hi! link NonText		LineNr
 
+" ColorColumn highlight
+hi colorcolumn ctermbg=233
+
 " vim:set ts=4 sw=4 noet:
