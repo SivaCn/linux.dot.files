@@ -43,6 +43,10 @@ nnoremap <F3> :set hlsearch!<CR>
 " Toggle paste.
 set pastetoggle=<F2>
 
+" Highlight CursorLine and CursorColumn
+set cursorline
+set cursorcolumn
+
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
