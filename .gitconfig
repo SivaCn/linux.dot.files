@@ -94,6 +94,7 @@
 
 #[push]
 #  default = matching
-[user]
-    email = anonymous@anonymous.com
-    name = <ANONYMOUS>
+
+#[user]
+#    email = anonymous@anonymous.com
+#    name = <ANONYMOUS>
