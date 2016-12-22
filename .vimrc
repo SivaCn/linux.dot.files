@@ -164,3 +164,11 @@ set statusline+=%b,0x%-8B\                     " current char
 set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=\                              " Empty white space
 set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
+
+function! InsertLine()
+  let trace = expand("import pdb; pdb.set_trace() ## XXX: Remove This")
+  execute "normal O".trace
+endfunction
+
+" Custom Key bindings
+map <Leader>p :call InsertLine()<CR>
