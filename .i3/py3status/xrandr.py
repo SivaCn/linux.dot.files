@@ -236,6 +236,8 @@ class Py3status:
                 previous_output = output
             else:
                 cmd += ' --off'
+
+            cmd += ' --right-of LVDS1'
         #
         code = call(shlex.split(cmd))
         if code == 0:
