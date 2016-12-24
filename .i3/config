@@ -28,9 +28,24 @@ font pango:monospace 8
 
 # --------------- Custom Configs Start here --------------- #
 # Set Background brightness to `x`
-exec xbacklight -set 25
+exec xbacklight -set 10
 # Set the Desktop Wallpaper
-exec feh --bg-center ~/.dependents/wallpaper.png
+exec feh --bg-center ~/.dependents/face.png
+
+# Run VLC Always in float mode
+for_window [title="(?i)vlc*"] floating enable
+bindsym $mod+p exec vlc
+
+# Move Windows in float mode by arrow keys
+mode "moveit" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+    bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m focus floating; mode "moveit"
 # --------------- Custom Configs End here --------------- #
 
 # Use Mouse+$mod to drag floating windows to their wanted position
