@@ -1,24 +1,24 @@
-# Exclude all files from the Home Directory
-*
-
-# Include some Specific files
-!.aliases
-!.bash_logout
-!.bash_profile
-!.bashrc
-!.functions
-!.gitconfig
-!.gitignore
-!.inputrc
-!.login
-!.logout
-!README.md
-!.tmux.conf
-!.vimrc
-!.vim_tips1
-!.vim_tips2
-
-# Include some Specific Directories
-!.i3/
-!.vim/
-!.dependents/
+## Exclude all files from the Home Directory
+#*
+#
+## Include some Specific files
+#!.aliases
+#!.bash_logout
+#!.bash_profile
+#!.bashrc
+#!.functions
+#!.gitconfig
+#!.gitignore
+#!.inputrc
+#!.login
+#!.logout
+#!README.md
+#!.tmux.conf
+#!.vimrc
+#!.vim_tips1
+#!.vim_tips2
+#
+## Include some Specific Directories
+#!.i3/
+#!.vim/
+#!.dependents/

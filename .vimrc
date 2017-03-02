@@ -172,3 +172,5 @@ endfunction
 
 " Custom Key bindings
 map <Leader>p :call InsertLine()<CR>
+
+nmap <F8> :TagbarToggle<CR>
