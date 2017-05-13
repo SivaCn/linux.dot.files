@@ -30,7 +30,8 @@ font pango:monospace 8
 # Set Background brightness to `x`
 exec xbacklight -set 25
 # Set the Desktop Wallpaper
-exec feh --bg-center ~/.dependents/wallpaper.png
+# exec feh --bg-center ~/.dependents/wallpaper.png
+exec feh --bg-center ~/.dependents/Buddha_wallpaper_1366x768.jpg
 # --------------- Custom Configs End here --------------- #
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -100,16 +101,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: Contacts
-bindsym $mod+2 workspace 2: Browser
-bindsym $mod+3 workspace 3: Code I
-bindsym $mod+4 workspace 4: Code II
-bindsym $mod+5 workspace 5: Instance
-bindsym $mod+6 workspace 6: App
-bindsym $mod+7 workspace 7: Media
-bindsym $mod+8 workspace 8: Others
-bindsym $mod+9 workspace 9: DB
-bindsym $mod+0 workspace 10: Remote
+bindsym $mod+1 workspace 1: TERM I
+bindsym $mod+2 workspace 2: TERM II
+bindsym $mod+3 workspace 3: TERM III
+bindsym $mod+4 workspace 4: TERM IV
+bindsym $mod+5 workspace 5: TERM V
+bindsym $mod+6 workspace 6: DOCKER
+bindsym $mod+7 workspace 7: DB/VLC
+bindsym $mod+8 workspace 8: BROWSER (INST)
+bindsym $mod+9 workspace 9: CHATS
+bindsym $mod+0 workspace 10: BROWSER
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -166,4 +167,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command py3status -c /home/cnsiva/.i3/i3status.conf
+
+        tray_output primary
 }
