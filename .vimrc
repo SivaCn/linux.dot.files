@@ -165,12 +165,174 @@ set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=\                              " Empty white space
 set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
 
-function! InsertLine()
+" ---------------------- START: CUSTOM FUNCTIONS ---------------------
+function! InsertInlineComment()
+  let trace = "#\n"
+  let trace = trace . "# "
+  execute "normal O".trace
+endfunction
+
+function! InsertPDB()
   let trace = expand("import pdb; pdb.set_trace() ## XXX: Remove This")
   execute "normal O".trace
 endfunction
 
+function! InsertDocStr()
+  let trace = append('.', [
+          \"'''DocStr.",
+          \"",
+          \"Usage:",
+          \"",
+          \"Note:",
+          \"",
+          \"Args:",
+          \"",
+          \"Raises:",
+          \"",
+          \"Returns:",
+          \"",
+          \"'''",
+          \""])[1]
+
+  execute "normal O".trace
+endfunction
+
+function! InsertStr()
+  let trace = append('.', [
+          \"    def __repr__(self):",
+          \"        '''Overridden str method implementation.",
+          \"        '''",
+          \"",
+          \"        return '''{}'''.format()",
+          \""])[1]
+
+  return trace
+endfunction
+
+function! InsertRepr()
+  let trace = append('.', [
+          \"    def __repr__(self):",
+          \"        '''Overridden repr method implementation.",
+          \"        '''",
+          \"",
+          \"        return '''<ClassName({})>'''.format()",
+          \""])[1]
+
+  return trace
+endfunction
+
+function! InsertInit()
+  let trace = append('.', [
+          \"    def __init__(self):",
+          \"        '''Initialization Block.",
+          \"",
+          \"        Usage:",
+          \"",
+          \"        Note:",
+          \"",
+          \"        Args:",
+          \"",
+          \"        Raises:",
+          \"",
+          \"        Returns:",
+          \"",
+          \"        '''",
+          \"",
+          \"        pass",
+          \""])[1]
+
+  return trace
+endfunction
+
+function! InsertCall()
+  let trace = append('.', [
+          \"    def __call__(self):",
+          \"        '''Making instance callable.",
+          \"",
+          \"        Usage:",
+          \"",
+          \"        Note:",
+          \"",
+          \"        Args:",
+          \"",
+          \"        Raises:",
+          \"",
+          \"        Returns:",
+          \"",
+          \"        '''",
+          \"",
+          \"        pass",
+          \""])[1]
+
+  return trace
+endfunction
+
+function! InsertInstanceMethod()
+  let trace = append('.', [
+          \"def func(self):",
+          \"    '''Instance method for.",
+          \"",
+          \"    Usage:",
+          \"",
+          \"    Note:",
+          \"",
+          \"    Args:",
+          \"",
+          \"    Raises:",
+          \"",
+          \"    Returns:",
+          \"",
+          \"    '''",
+          \"",
+          \"    pass",
+          \""])[1]
+
+  execute "normal O".trace
+endfunction
+
+function! InsertClassMethod()
+  let trace = append('.', [
+          \"@classmethod",
+          \"def func(cls):",
+          \"    '''Class method for.",
+          \"",
+          \"    Usage:",
+          \"",
+          \"    Note:",
+          \"",
+          \"    Args:",
+          \"",
+          \"    Raises:",
+          \"",
+          \"    Returns:",
+          \"",
+          \"    '''",
+          \"",
+          \"    return",
+          \""])[1]
+
+  execute "normal O".trace
+endfunction
+
+function! InsertClass()
+  let trace = [
+          \"class ClassName(object):\n".
+          \"'''A Class for .'''".
+          \InsertRepr()[1].
+          \InsertStr()[1].
+          \InsertCall()[1].
+          \InsertInit()[1]][0]
+
+  execute "normal O".trace
+endfunction
+" ---------------------- END: CUSTOM FUNCTIONS ---------------------
+
 " Custom Key bindings
-map <Leader>p :call InsertLine()<CR>
+map <Leader>pdb :call InsertPDB()<CR>
+map <Leader>c :call InsertClass()<CR>
+map <Leader>cm :call InsertClassMethod()<CR>
+map <Leader>ds :call InsertDocStr()<CR>
+map <Leader>im :call InsertInstanceMethod()<CR>
+map <Leader>com :call InsertInlineComment()<CR>
 
 nmap <F8> :TagbarToggle<CR>
