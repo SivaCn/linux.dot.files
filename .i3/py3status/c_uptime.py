@@ -7,7 +7,7 @@ Inspired by i3 FAQ:
 """
 
 from time import time
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, check_output
 
 
 class Py3status:
@@ -21,10 +21,15 @@ class Py3status:
         We use the getpass module to get the current user.
         """
 
-        out = Popen('uptime', stdout=PIPE, stderr=PIPE)
+        out = Popen(['uptime', '-p'], stdout=PIPE, stderr=PIPE)
 
+        out = check_output(['uptime', '-p'])
+
+        # response = {
+        #     'full_text': 'UPTIME: ' + ''.join(str(out.communicate()[0]).split(',')[0].split(' ')[3:])
+        # }
         response = {
-            'full_text': 'UP: ' + ' '.join(str(out.communicate()[0]).split(',')[0].split(' ')[3:])
+            'full_text': out[:-1]
         }
         return response
 
@@ -35,8 +40,8 @@ if __name__ == "__main__":
     from time import sleep
     x = Py3status()
     config = {
-        'color_good': '#00FF00',
-        'color_bad': '#FF0000',
+        'color_good': '#000000',
+        'color_bad': '#FFFFFF',
     }
     while True:
         print(x.uptime([], config))

@@ -1,3 +1,8 @@
+# ------- Pre sets ----------------
+xbacklight -set 15
+# ------- Pre sets ----------------
+
+
 ## Sourcing External Configs
 source ~/.functions
 source ~/.aliases
