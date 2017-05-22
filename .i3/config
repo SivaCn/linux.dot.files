@@ -29,6 +29,7 @@ font pango:monospace 8
 # --------------- Custom Configs Start here --------------- #
 # Set Background brightness to `x`
 exec xbacklight -set 25
+
 # Set the Desktop Wallpaper
 # exec feh --bg-center ~/.dependents/wallpaper.png
 exec feh --bg-center ~/.dependents/Buddha_wallpaper_1366x768.jpg
@@ -42,6 +43,9 @@ bindsym $mod+Return exec terminator -m -b
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# Screen shots
+bindsym $mod+p exec gnome-screenshot
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
