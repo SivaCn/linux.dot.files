@@ -39,7 +39,7 @@ exec feh --bg-center ~/.dependents/Buddha_wallpaper_1366x768.jpg
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator -m -b
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
