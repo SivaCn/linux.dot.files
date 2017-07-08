@@ -87,4 +87,5 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 # ---------------- APP ALIASES -------------- #
 alias db="nohup ~/TOOLS/dbeaver/./dbeaver &"
 alias fde="nohup ~/TOOLS/firefox/./firefox &"
-alias jnote="jupyter-notebook /home/cnsiva/jupyter/"
+alias jnote="nohup jupyter-notebook /home/cnsiva/jupyter/ &"
+alias rdp="rdesktop -g 1350x730"
