@@ -149,6 +149,24 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+" FLAKE-8
+" Auto-check file for errors on write:
+let g:PyFlakeOnWrite = 1
+" List of checkers used:
+let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+" Default maximum complexity for mccabe:
+let g:PyFlakeDefaultComplexity=10
+" List of disabled pep8 warnings and errors:
+let g:PyFlakeDisabledMessages = 'E501'
+" Default height of quickfix window:
+let g:PyFlakeCWindow = 6
+" Whether to place signs or not:
+let g:PyFlakeSigns = 1
+" Maximum line length for PyFlakeAuto command
+let g:PyFlakeMaxLineLength = 118
+" Visual-mode key command for PyFlakeAuto
+let g:PyFlakeRangeCommand = 'Q'
+
 " Delete all Blank Lines
 fun! DelTrailingWhiteSpaces()
    let _s=@/
