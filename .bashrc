@@ -1,5 +1,5 @@
 # ------- Pre sets ----------------
-xbacklight -set 15
+xbacklight -set 30
 # ------- Pre sets ----------------
 
 

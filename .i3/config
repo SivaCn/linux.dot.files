@@ -32,11 +32,13 @@ exec xbacklight -set 25
 
 # Set the Desktop Wallpaper
 # exec feh --bg-center ~/.dependents/wallpaper.png
-exec feh --bg-center ~/.dependents/Buddha_wallpaper_1366x768.jpg
+exec feh --bg-center ~/.dependents/wallpaper.png
 # --------------- Custom Configs End here --------------- #
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+floating_minimum_size 150x100
 
 # start a terminal
 bindsym $mod+Return exec terminator

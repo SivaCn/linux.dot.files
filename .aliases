@@ -21,12 +21,14 @@ alias cls='clear;ls'
 
 alias serve="python -m SimpleHTTPServer"
 
-alias vi="vim"
+alias vi="vim -p"
+alias vim="vim -p"
 
 alias cp="cp -iv"     # interactive, verbose
 alias rm="rm -i"      # interactive
 alias mv="mv -iv"     # interactive, verbose
-alias grep="grep -i"  # ignore case
+alias grep="grep --color=auto -irsnE"  # ignore case
+alias grepl="grep --color=auto -irslE"  # ignore case
 
 # cd .. aliases
 alias ..='cd ..'
@@ -63,6 +65,7 @@ alias vf='cd'
 alias moer='more'
 alias moew='more'
 alias kk='ll'
+alias gti='git'
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'

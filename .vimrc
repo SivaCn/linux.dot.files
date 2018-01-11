@@ -40,6 +40,8 @@ set noswapfile
 " Toggle Search Highlights
 nnoremap <F3> :set hlsearch!<CR>
 
+" paste by default
+set paste
 " Toggle paste.
 set pastetoggle=<F2>
 
@@ -81,7 +83,7 @@ set autoindent
 
 "folding settings
 set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
+set foldnestmax=100       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
@@ -91,7 +93,7 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set formatoptions-=o "dont continue comments when pushing o/O
 
 "vertical/horizontal scroll off settings
-set scrolloff=15
+set scrolloff=10
 set sidescrolloff=10
 set sidescroll=1
 
@@ -151,7 +153,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " FLAKE-8
 " Auto-check file for errors on write:
-let g:PyFlakeOnWrite = 1
+let g:PyFlakeOnWrite = 0
 " List of checkers used:
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 " Default maximum complexity for mccabe:
@@ -167,17 +169,9 @@ let g:PyFlakeMaxLineLength = 118
 " Visual-mode key command for PyFlakeAuto
 let g:PyFlakeRangeCommand = 'Q'
 
-" Delete all Blank Lines
-fun! DelTrailingWhiteSpaces()
-   let _s=@/
-   let l = line(".")
-   let c = col(".")
-   :%s/\s\+$//
-   let @/=_s
-   call cursor(l, c)
-endfun
+" Let vim complete the delimiter
+let delimitMate_expand_cr = 1
 
-map <special> <leader>dws :keepjumps call DelTrailingWhiteSpaces()<cr>
 
 " jamessan's
 set statusline=   " clear the statusline for when vimrc is reloaded
@@ -196,173 +190,28 @@ set statusline+=\                              " Empty white space
 set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
 
 " ---------------------- START: CUSTOM FUNCTIONS ---------------------
-function! InsertInlineComment()
-  let trace = "#\n"
-  let trace = trace . "# "
-  execute "normal O".trace
-endfunction
 
 function! InsertPDB()
   let trace = expand("import pdb; pdb.set_trace() ## XXX: Remove This")
   execute "normal O".trace
 endfunction
 
-function! InsertDocStr()
-  let trace = append('.', [
-          \"'''DocStr.",
-          \"",
-          \"Usage:",
-          \"",
-          \"Note:",
-          \"",
-          \"Args:",
-          \"",
-          \"Raises:",
-          \"",
-          \"Returns:",
-          \"",
-          \"'''",
-          \""])[1]
+" Delete all Blank Lines
+fun! DelTrailingWhiteSpaces()
+   let _s=@/
+   let l = line(".")
+   let c = col(".")
+   :%s/\s\+$//
+   let @/=_s
+   call cursor(l, c)
+endfun
 
-  execute "normal O".trace
-endfunction
-
-function! InsertStr()
-  let trace = append('.', [
-          \"    def __repr__(self):",
-          \"        '''Overridden str method implementation.",
-          \"        '''",
-          \"",
-          \"        return '''{}'''.format()",
-          \""])[1]
-
-  return trace
-endfunction
-
-function! InsertRepr()
-  let trace = append('.', [
-          \"    def __repr__(self):",
-          \"        '''Overridden repr method implementation.",
-          \"        '''",
-          \"",
-          \"        return '''<ClassName({})>'''.format()",
-          \""])[1]
-
-  return trace
-endfunction
-
-function! InsertInit()
-  let trace = append('.', [
-          \"    def __init__(self):",
-          \"        '''Initialization Block.",
-          \"",
-          \"        Usage:",
-          \"",
-          \"        Note:",
-          \"",
-          \"        Args:",
-          \"",
-          \"        Raises:",
-          \"",
-          \"        Returns:",
-          \"",
-          \"        '''",
-          \"",
-          \"        pass",
-          \""])[1]
-
-  return trace
-endfunction
-
-function! InsertCall()
-  let trace = append('.', [
-          \"    def __call__(self):",
-          \"        '''Making instance callable.",
-          \"",
-          \"        Usage:",
-          \"",
-          \"        Note:",
-          \"",
-          \"        Args:",
-          \"",
-          \"        Raises:",
-          \"",
-          \"        Returns:",
-          \"",
-          \"        '''",
-          \"",
-          \"        pass",
-          \""])[1]
-
-  return trace
-endfunction
-
-function! InsertInstanceMethod()
-  let trace = append('.', [
-          \"def func(self):",
-          \"    '''Instance method for.",
-          \"",
-          \"    Usage:",
-          \"",
-          \"    Note:",
-          \"",
-          \"    Args:",
-          \"",
-          \"    Raises:",
-          \"",
-          \"    Returns:",
-          \"",
-          \"    '''",
-          \"",
-          \"    pass",
-          \""])[1]
-
-  execute "normal O".trace
-endfunction
-
-function! InsertClassMethod()
-  let trace = append('.', [
-          \"@classmethod",
-          \"def func(cls):",
-          \"    '''Class method for.",
-          \"",
-          \"    Usage:",
-          \"",
-          \"    Note:",
-          \"",
-          \"    Args:",
-          \"",
-          \"    Raises:",
-          \"",
-          \"    Returns:",
-          \"",
-          \"    '''",
-          \"",
-          \"    return",
-          \""])[1]
-
-  execute "normal O".trace
-endfunction
-
-function! InsertClass()
-  let trace = [
-          \"class ClassName(object):\n".
-          \"'''A Class for .'''".
-          \InsertRepr()[1].
-          \InsertStr()[1].
-          \InsertCall()[1].
-          \InsertInit()[1]][0]
-
-  execute "normal O".trace
-endfunction
 " ---------------------- END: CUSTOM FUNCTIONS ---------------------
 
-" Custom Key bindings
+" Insert python pdb
 map <Leader>pdb :call InsertPDB()<CR>
-map <Leader>c :call InsertClass()<CR>
-map <Leader>cm :call InsertClassMethod()<CR>
-map <Leader>ds :call InsertDocStr()<CR>
-map <Leader>im :call InsertInstanceMethod()<CR>
-map <Leader>com :call InsertInlineComment()<CR>
+
+" Delete all trailing white spaces
+map <special> <leader>dws :keepjumps call DelTrailingWhiteSpaces()<cr>
 
 nmap <F8> :TagbarToggle<CR>
