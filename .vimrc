@@ -81,6 +81,9 @@ set softtabstop=4
 set expandtab
 set autoindent
 
+"default text width during paragraph formating
+set textwidth=100
+
 "folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=100       "deepest fold is 3 levels
