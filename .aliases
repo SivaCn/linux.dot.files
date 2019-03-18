@@ -91,4 +91,6 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 alias db="nohup ~/TOOLS/dbeaver/./dbeaver &"
 alias fde="nohup ~/TOOLS/firefox/./firefox &"
 alias jnote="nohup ipython2 notebook /home/cnsiva/jupyter/ &"
-alias rdp="rdesktop -g 1350x730"
+
+alias rdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1100x700"
+alias exrdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1820x1100"
