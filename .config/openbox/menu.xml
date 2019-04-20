@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="applications-menu" label="Applications" execute="/usr/libexec/openbox-xdg-menu applications"/>
+<menu id="preferences-menu" label="Preferences" execute="/usr/libexec/openbox-xdg-menu preferences"/>
+<menu id="administration-menu" label="Administration" execute="/usr/libexec/openbox-xdg-menu system-settings"/>
+<menu id="terminals-menu" label="Terminals" execute="/usr/libexec/openbox-xdg-menu /etc/xdg/openbox/terminals"/>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Openbox"/>
+  <!--
+    <menu id="applications-menu"/>
+    <menu id="preferences-menu"/>
+    <menu id="administration-menu"/>
+  -->
+  <menu id="randr-menu" label="display" execute="~/.config/openbox/ob-randr.py" />
+  <separator/>
+  <menu id="terminals-menu"/>
+  <separator/>
+  <item label="Reconfigure">
+    <action name="Reconfigure" />
+  </item>
+  <!--
+  <item label="Exit">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+  <separator/>
+  <item label="Log Out">
+    <action name="SessionLogout">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+  -->
+
+  <item label="Reboot">
+      <action name="Execute">
+          <prompt>
+              Are you sure you want to reboot?
+          </prompt>
+          <execute>
+              sudo shutdown -r now
+          </execute>
+      </action>
+  </item>
+
+  <item label="Shutdown">
+      <action name="Execute">
+          <prompt>
+              Are you sure you want to shutdown?
+          </prompt>
+          <execute>
+              shutdown -h now
+          </execute>
+      </action>
+  </item>
+</menu>
+
+</openbox_menu>
