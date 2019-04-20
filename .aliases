@@ -11,9 +11,9 @@ alias mkdir="mkdir -p"
 alias df="df -Tha --total"
 alias du="du -ach | sort -h"
 
-alias l="ls -CF --group-directories-first --color"
-alias ll="ls -lrthF --group-directories-first --color"
-alias ls="ls -CF --group-directories-first --color"
+alias l="ls -CF --group-directories-first"
+alias ll="ls -lrthF --group-directories-first"
+alias ls="ls -CF --group-directories-first"
 alias lsl="ls -lhFA --group-directories-first"
 
 alias c='clear;ls'
@@ -94,3 +94,7 @@ alias jnote="nohup ipython2 notebook /home/cnsiva/jupyter/ &"
 
 alias rdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1100x700"
 alias exrdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1820x1100"
+
+alias i3lock="i3lock -c 000000"
+
+alias script='script -f; export LOGSQL=INFO; export LOGZSQL=INFO'
