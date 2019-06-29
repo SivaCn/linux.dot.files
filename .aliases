@@ -90,7 +90,7 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 # ---------------- APP ALIASES -------------- #
 alias db="nohup ~/TOOLS/dbeaver/./dbeaver &"
 alias fde="nohup ~/TOOLS/firefox/./firefox &"
-alias jnote="nohup ipython2 notebook /home/cnsiva/jupyter/ &"
+alias jnote="nohup /home/cnsiva/venv/bin/jupyter-notebook /home/cnsiva/JUPYTER-NOTEBOOK/ &"
 
 alias rdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1100x700"
 alias exrdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1820x1100"
@@ -98,3 +98,5 @@ alias exrdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1820x1100"
 alias i3lock="i3lock -c 000000"
 
 alias script='script -f; export LOGSQL=INFO; export LOGZSQL=INFO'
+
+# alias youtube-dl='youtube-dl --extract-audio --audio-format mp3'
