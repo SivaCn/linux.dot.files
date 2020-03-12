@@ -1,3 +1,8 @@
+# Xrandr
+alias xrandr_right="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --right-of eDP-1"
+alias xrandr_same="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --same-as eDP-1"
+alias xrandr_left="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --left-of eDP-1"
+
 # List files/directories which are modified today
 alias ld="ls -al --time-style=+%D | grep `date +%D`"
 
