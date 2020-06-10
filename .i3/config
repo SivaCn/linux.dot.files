@@ -28,7 +28,7 @@ font pango:monospace 8
 
 # --------------- Custom Configs Start here --------------- #
 # Set Background brightness to `x`
-exec xbacklight -set 25
+#exec xbacklight -set 25
 
 # Set the Desktop Wallpaper
 # exec feh --bg-center ~/.dependents/wallpaper.png

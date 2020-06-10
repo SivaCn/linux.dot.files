@@ -1,5 +1,5 @@
 # ------- Pre sets ----------------
-xbacklight -set 20
+# xbacklight -set 20
 # ------- Pre sets ----------------
 
 export LOGSQL=INFO
