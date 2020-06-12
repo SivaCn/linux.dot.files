@@ -22,6 +22,9 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
     Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
 
+    Plugin 'tpope/vim-commentary'               " Comment stuff out
+    Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()
 
 filetype plugin indent on
