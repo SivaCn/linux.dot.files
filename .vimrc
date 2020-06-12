@@ -1,6 +1,31 @@
+
+" encoding dectection
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+
+" -------------------------=== Plugin Setups ===-----------------------------
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
+
+    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
+
+call vundle#end()
+
+filetype plugin indent on
+
 
 " Set the color Scheme
 colorscheme wombat256mod
@@ -113,6 +138,90 @@ set t_Co=256
 
 "hide buffers when not displayed
 set hidden
+
+" ----------------------=== Customizations ===----------------------------
+"=====================================================
+"" AirLine settings
+"=====================================================
+let g:airline_theme='badwolf'
+let g:airline#extensions#tabline#formatter='unique_tail'
+" let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'default'
+" let g:airline_theme='luna'
+
+" 切换 buffer
+nnoremap <C-N> :bn<CR> 
+nnoremap <C-P> :bp<CR> 
+
+" 关闭状态显示空白符号计数
+let g:airline#extensions#whitespace#enabled = 1 
+let g:airline#extensions#whitespace#symbol = '!' 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+"  " powerline symbols
+"  let g:airline_left_sep = ''
+"  let g:airline_left_alt_sep = ''
+"  let g:airline_right_sep = ''
+"  let g:airline_right_alt_sep = ''
+"  let g:airline_symbols.branch = ''
+"  let g:airline_symbols.readonly = ''
+"  let g:airline_symbols.linenr = '☰'
+"  let g:airline_symbols.maxlinenr = ''
+
+
+
+"""""""""""" Start Powerline Settings """"""""""""""""
+
+" set guifont=Inconsolata\ for\ Powerline:h15
+set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+if has("gui_running")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+        colorscheme PaperColor              " set color scheme
+    endif
+endif
+
+""""""""""" END of PowerLine Settings """""""""""""""
+
+
 
 " ---------------------- START: CUSTOM FUNCTIONS ---------------------
 
