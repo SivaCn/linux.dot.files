@@ -1,0 +1,108 @@
+# Xrandr
+alias xrandr_right="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --right-of eDP-1"
+alias xrandr_same="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --same-as eDP-1"
+alias xrandr_left="xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --left-of eDP-1"
+
+
+# List files/directories which are modified today
+alias ld="ls -al --time-style=+%D | grep `date +%D`"
+
+alias fhere="find . -name "
+
+alias free="free -mt"
+
+alias ps="ps -auxf"
+alias mkdir="mkdir -p"
+
+alias df="df -Tha --total"
+alias du="du -ach | sort -h"
+
+alias l="ls -CF --group-directories-first"
+alias ll="ls -lrthF --group-directories-first"
+alias ls="ls -CF --group-directories-first"
+alias lsl="ls -lhFA --group-directories-first"
+
+alias c='clear;ls'
+alias cls='clear;ls'
+
+alias serve="python -m SimpleHTTPServer"
+
+alias vi="vim -p"
+alias vim="vim -p"
+
+alias cp="cp -iv"     # interactive, verbose
+alias rm="rm -i"      # interactive
+alias mv="mv -iv"     # interactive, verbose
+alias grep="grep --color=auto -irsnE"  # ignore case
+alias grepl="grep --color=auto -irslE"  # ignore case
+
+# cd .. aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+alias ..........='cd ../../../../../../../../..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias .6='cd ../../../../../..'
+alias .7='cd ../../../../../../..'
+alias .8='cd ../../../../../../../..'
+alias .9='cd ../../../../../../../../..'
+alias .10='cd ../../../../../../../../../..'
+alias .11='cd ../../../../../../../../../../..'
+
+# ls look into directories above
+alias l1='ls -l ..'
+alias l2='ls -l ../..'
+alias l3='ls -l ../../..'
+alias l4='ls -l ../../../..'
+
+# Typp Errors
+alias sl="ls"
+alias cd..="cd .."
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias moew='more'
+alias kk='ll'
+alias gti='git'
+
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5'
+
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s.2'
+
+alias scanport='netstat -tulanp'
+
+# System Power Cycles
+alias shutdown="sudo shutdown -h now"
+
+# Copy SSH public key
+alias cbssh="cbf ~/.ssh/id_rsa.pub"
+
+# Copy current working directory
+alias cbwd="pwd | cb"
+
+# Copy most recent command in bash history
+alias cbhs="cat $HISTFILE | tail -n 1 | cb"
+
+# ---------------- APP ALIASES -------------- #
+alias db="nohup ~/TOOLS/dbeaver/./dbeaver &"
+alias fde="nohup ~/TOOLS/firefox/./firefox &"
+alias jnote="nohup /home/cnsiva/venv/bin/jupyter-notebook /home/cnsiva/JUPYTER-NOTEBOOK/ &"
+
+alias rdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1100x700"
+alias exrdp="xfreerdp --plugin cliprdr -u nsivakumar -g 1820x1100"
+
+alias i3lock="i3lock -c 000000"
+
+alias script='script -f; export LOGSQL=INFO; export LOGZSQL=INFO'
+
+# alias youtube-dl='youtube-dl --extract-audio --audio-format mp3'
