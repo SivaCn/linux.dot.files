@@ -16,7 +16,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
     " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
+    " This must be cloned first to begin with.
+    " clone https://github.com/VundleVim/Vundle.vim.git this repo into ~/.vim/bundle/Vundle.vim
+    Plugin 'VundleVim/Vundle.vim'               " https://github.com/VundleVim/Vundle.vim.git
 
     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
     Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
