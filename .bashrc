@@ -88,4 +88,6 @@ unset hostcolor usercolor dircolor ttybracket ttyat
 #------------------------------------
 # GIT auto completion
 #------------------------------------
-source ~/.scripts/git_auto_complete.bash
+#source ~/.scripts/git_auto_complete.bash
+
+bind 'set completion-ignore-case on'
