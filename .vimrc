@@ -33,6 +33,8 @@ call vundle#end()
 
 filetype on
 
+" Automatically change to the current directory
+set autochdir
 
 " Set the color Scheme
 colorscheme wombat256mod
@@ -240,6 +242,7 @@ let g:syntastic_style_error_symbol='X'
 let g:syntastic_warning_symbol='x'
 let g:syntastic_style_warning_symbol='x'
 let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python3.6']
+let g:syntastic_python_flake8_args='--ignore=E402,W605,C901'
 
 
 
@@ -264,6 +267,11 @@ function! InsertPDB()
   execute "normal O".trace
 endfunction
 
+function! InsertRDB()
+  let trace = expand("from celery.contrib import rdb; rdb.set_trace() ## XXX: Remove This")
+  execute "normal O".trace
+endfunction
+
 " Delete all Blank Lines
 fun! DelTrailingWhiteSpaces()
    let _s=@/
@@ -278,6 +286,9 @@ endfun
 
 " Insert python pdb
 map <Leader>pdb :call InsertPDB()<CR>
+
+" Insert celery rdb
+map <Leader>rdb :call InsertRDB()<CR>
 
 " Delete all trailing white spaces
 map <special> <leader>dws :keepjumps call DelTrailingWhiteSpaces()<cr>
