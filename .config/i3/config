@@ -21,7 +21,8 @@ bindsym $alt+b border toggle
 # exec $psst compton -bcf -i 0.7
 # exec $psst redshift
 # exec $psst light -s 50
-exec $psst feh --bg-scale -F Wallpaper/think_twice.jpg
+# exec $psst feh --bg-scale -F Wallpaper/think_twice.jpg
+exec $psst feh --bg-scale -F ~/Wallpaper/Arch-1.jpg
 # #exec $psst imv -f ~/img/deathstar.png &
 exec $psst xautolock -time 9 -locker '~/.config/i3/i3exit.sh lock' &
 # exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
@@ -127,20 +128,21 @@ for_window [instance="_xkill_"] move scratchpad
 
 # define names for workspaces with some nice symbols
 # ✪ ❶  ❷  ❸  ❹  ❺  ❻  ❼ ☘ ❽  ❾  10❿ 11 12
+# ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ 
 
 set $w0 0✪
-set $w1 1❶  
+set $w1 1❶ SivaCn [ ]
 set $w2 2❷ ❄
 set $w3 3❸ 
-set $w4 4❹ 
+set $w4 4❹ 
 set $w5 5❺ 
 set $w6 6❻ 
 set $w7 7❼ ☘
 set $w8 8❽ 
 set $w9 9❾ 
-set $w10 10❿ 
-set $w11 11
-set $w12 12
+set $w10 10 ❿
+set $w11 11 ⓫ 
+set $w12 12 ⓬ 𝅘𝅥𝅯
 
 # switch to workspace
 bindsym $alt+grave workspace $w0
