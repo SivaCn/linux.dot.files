@@ -20,6 +20,10 @@ export VISUAL=vim
 export HISTCONTROL=ignorespace
 unset HISTFILE
 
+#
+# Setup the Go Environment
+export PATH=$PATH:/usr/local/go/bin
+
 [ "$UID" ] || UID=`id -u`
 usercolor='01;33'
 dircolor='01;34'
@@ -63,7 +67,9 @@ PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDi
 # PS1='\n`if [ $? = 0 ]; then echo "\n\[\033[1;34m\]┏━━┅(\[\e[0m\] \[\033[1;37m\]\u\[\e[0m\] \[\033[1;34m\])━━┅(\[\e[0m\] \[\033[1;37m\]${CurDir}\[\e[0m\] \[\033[1;34m\])━━┅( Git:\[\e[0m\] \[\033[1;37m\]$(git-branch-name)\[\e[0m\] \[\033[1;34m\])\[\e[0m\]\n\[\033[1;34m\]┗┅>\[\e[0m\] "; else echo "\n\[\033[1;31m\]┏━━┅(\[\e[0m\] \[\033[1;37m\]\u\[\e[0m\] \[\033[1;31m\])━━┅(\[\e[0m\] \[\033[1;37m\]${CurDir}\[\e[0m\] \[\033[1;31m\])━━┅( Git:\[\e[0m\] \[\033[1;37m\]$(git-branch-name)\[\e[0m\] \[\033[1;31m\])\[\e[0m\]\n\[\033[1;31m\]┗┅>\[\e[0m\] "; fi`'
 
 # PS1='\n\n\[\e[1m\]==(\u)==(${CurDir})==(Git:$(git-branch-name))\n==> \[\e[0m\]'
-PS1='\n\n|==(\u)==(Dir: ${CurDir})==(Git: $(git-branch-name))\n|-> '
+# PS1='\n\n|==(\u)==(Dir: ${CurDir})==(Git: $(git-branch-name))\n|-> '
+
+PS1='\n\n\[\e[0;94m\]\[\e[1m\]┌──[\u]──[Dir: \[\e[0;92m\]\[\e[1m\]${CurDir}\[\e[0;94m\]\[\e[1m\]]──[Git: \[\e[0;92m\]\[\e[1m\]$(git-branch-name)\[\e[0;94m\]\[\e[1m\]]\n└─➤ \[\e[0m\]'
 
 case "$TERM" in
   screen*|xterm*|rxvt*|Eterm*|kterm*|dtterm*|ansi*|cygwin*)

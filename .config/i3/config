@@ -274,19 +274,20 @@ mode "$mode_caps" {
 }
 
 # ceeriously styled i3
-set $bg     #000000
-set $fg     #000000
-set $hi     #fce94f
-set $ac     #4084d6
-set $tx     #ffffff
-set $ia     #9e9e9e
-set $be     #8faf9f
-set $yw     #f8f893
-set $gn     #81c181
-set $rd     #bf9b76
-set $id     #f9f8ff
-set $ce     #ceecee
-set $sl     #7f7f7f
+set $bg             #000000
+set $fg             #000000
+set $hi             #fce94f
+set $ac             #4084d6
+set $tx             #ffffff
+set $ia             #9e9e9e
+set $be             #8faf9f
+set $yw             #f8f893
+set $gn             #81c181
+set $rd             #bf9b76
+set $id             #f9f8ff
+set $ce             #ceecee
+set $sl             #7f7f7f
+set $darkgreen      #5DFC0A
 
 # set some nice colors      border  background  text    indicator
 client.focused              $ac     $ac         $tx     $id
@@ -301,7 +302,7 @@ bar {
     position bottom
     strip_workspace_numbers yes
     #tray_output none
-    font pango:Economica, FontAwesome 17
+    font pango:Economica, FontAwesome 16
     separator_symbol "》"
 
     status_command i3status --config ~/.config/i3/i3status.conf
@@ -315,7 +316,7 @@ bar {
         background          $bg
         statusline          $sl
         separator           $tx
-        focused_workspace   $sl        $sl        $bg
+        focused_workspace   $bg        $fg        $darkgreen
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $fg        $ia
         urgent_workspace    $ac        $bg        $ac
