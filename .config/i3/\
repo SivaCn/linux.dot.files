@@ -131,10 +131,10 @@ for_window [instance="_xkill_"] move scratchpad
 # ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴
 
 set $w0 0》✪
-set $w1 1》❶ SivaCn [ ]
+set $w1 1》❶ SivaCn [🐧]
 set $w2 2》❷ ❄
-set $w3 3》❸ 
-set $w4 4》❹ 
+set $w3 3》❸ 🌍
+set $w4 4》❹ 🌍
 set $w5 5》❺ 
 set $w6 6》❻ 
 set $w7 7》❼ ☘
@@ -301,8 +301,8 @@ bar {
     position bottom
     strip_workspace_numbers yes
     #tray_output none
-    font pango:Economica, FontAwesome 17
-    separator_symbol "》"
+    font pango:Economica, FontAwesome 15
+    separator_symbol "⋆"
 
     status_command i3status --config ~/.config/i3/i3status.conf
     # use patched i3status
@@ -315,7 +315,7 @@ bar {
         background          $bg
         statusline          $sl
         separator           $tx
-        focused_workspace   $sl        $sl        $bg
+        focused_workspace   $bg        $ia        $tx
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $fg        $ia
         urgent_workspace    $ac        $bg        $ac
@@ -328,41 +328,41 @@ bindsym $alt+Super_L scratchpad show
 for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
-#bindsym $sup+a exec stm32-workbench
-#bindsym $sup+b exec VirtualBox
-##bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
-#bindsym $sup+c exec wine "${HOME}/.wine/drive_c/Program Files (x86)/AnalogX/PCalc/pcalc.exe"
-#bindsym $sup+Shift+c exec speedcrunch
-##bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
-#bindsym $sup+d exec ~/.config/i3/layouts/start-dia.sh
-#bindsym $sup+e exec thunderbird
-#bindsym $sup+Shift+e exec "kmail --style=gtk"
-#bindsym $sup+f exec pcmanfm
-#bindsym $sup+g exec gimp
-#bindsym $sup+h exec script-communicator
-#bindsym $sup+i exec inkscape
-#bindsym $sup+j exec rainlendar
-#bindsym $sup+k exec wireshark
-#bindsym $sup+l exec libreoffice
-#bindsym $sup+m exec clementine
-#bindsym $sup+Shift+m exec mixxx
-#bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
-#bindsym $sup+o exec qutebrowser https://login.microsoftonline.com
-##bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
-#bindsym $sup+p exec "xrandr --output DP-1 --auto"
-#bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP-1 --off"
-#bindsym $sup+q exec qtcreator
-#bindsym $sup+r exec termite -e ranger
-#bindsym $sup+s exec rofi -show ssh
-#bindsym $sup+t [con_mark="^todo$"] scratchpad show
-#bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
-#bindsym $sup+v exec vlc
-#bindsym $sup+w exec qutebrowser --backend webengine --enable-webengine-inspector
-##bindsym $sup+w exec qutebrowser
-#bindsym $sup+Shift+w exec google-chrome-stable
-#bindsym $sup+x exec keepassxc
-#bindsym $sup+y exec system-config-printer
-##bindsym $sup+z exec wpa_gui
+bindsym $sup+a exec stm32-workbench
+bindsym $sup+b exec VirtualBox
+#bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
+bindsym $sup+c exec wine "${HOME}/.wine/drive_c/Program Files (x86)/AnalogX/PCalc/pcalc.exe"
+bindsym $sup+Shift+c exec speedcrunch
+#bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
+bindsym $sup+d exec ~/.config/i3/layouts/start-dia.sh
+bindsym $sup+e exec thunderbird
+bindsym $sup+Shift+e exec "kmail --style=gtk"
+bindsym $sup+f exec pcmanfm
+bindsym $sup+g exec gimp
+bindsym $sup+h exec script-communicator
+bindsym $sup+i exec inkscape
+bindsym $sup+j exec rainlendar
+bindsym $sup+k exec wireshark
+bindsym $sup+l exec libreoffice
+bindsym $sup+m exec clementine
+bindsym $sup+Shift+m exec mixxx
+bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
+bindsym $sup+o exec qutebrowser https://login.microsoftonline.com
+#bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
+bindsym $sup+p exec "xrandr --output DP-1 --auto"
+bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP-1 --off"
+bindsym $sup+q exec qtcreator
+bindsym $sup+r exec termite -e ranger
+bindsym $sup+s exec rofi -show ssh
+bindsym $sup+t [con_mark="^todo$"] scratchpad show
+bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
+bindsym $sup+v exec vlc
+bindsym $sup+w exec qutebrowser --backend webengine --enable-webengine-inspector
+#bindsym $sup+w exec qutebrowser
+bindsym $sup+Shift+w exec google-chrome-stable
+bindsym $sup+x exec keepassxc
+bindsym $sup+y exec system-config-printer
+#bindsym $sup+z exec wpa_gui
 
 bindsym $alt+Return exec $TERMINAL
 # bindsym $alt+Shift+Return exec termite -d $(xcwd)
@@ -383,14 +383,14 @@ bindsym $sup+7 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GR
 
 # screenshot & open in gimp
 #bindsym Ctrl+Print exec teiler
-bindsym Print exec gnome-screenshot -w
+bindsym Ctrl+Print exec gnome-screenshot -w
 bindsym Shift+Print exec gnome-screenshot -a
 
 bindsym $alt+F12 [instance="^_scratchpad_$"] scratchpad show
 
 # Specialkeys
-# bindsym XF86ScreenSaver       exec $psst ~/.config/i3/i3exit.sh lock
-bindsym $alt+l                  exec $psst ~/.config/i3/i3exit.sh lock
+# bindsym XF86ScreenSaver         exec $psst ~/.config/i3/i3exit.sh lock
+bindsym $alt+l         exec $psst ~/.config/i3/i3exit.sh lock
 bindsym $sup+space              exec $psst ~/.config/i3/i3exit.sh lock
 bindsym XF86Sleep               exec $psst ~/.config/i3/i3exit.sh suspend
 bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
