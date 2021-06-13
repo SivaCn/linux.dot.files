@@ -53,7 +53,7 @@ bindsym $alt+Shift+q    kill
 bindsym $alt+Shift+w    exec --release "termite --name=_xkill_ -e xkill"
 
 # rename workspace
-bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
+# bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
 set $execute exec rofi -show run
