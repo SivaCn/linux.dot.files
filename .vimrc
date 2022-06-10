@@ -295,3 +295,8 @@ map <special> <leader>dws :keepjumps call DelTrailingWhiteSpaces()<cr>
 
 nmap <F8> :TagbarToggle<CR>
 
+
+" Move the currentline above and below, use Ctrl+Up for upwards and Ctrl+Down for downwards
+nnoremap <C-Up> <Up>ddp<Up>
+nnoremap <C-Down> ddp
+

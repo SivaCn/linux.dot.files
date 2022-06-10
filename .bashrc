@@ -96,4 +96,7 @@ unset hostcolor usercolor dircolor ttybracket ttyat
 #------------------------------------
 #source ~/.scripts/git_auto_complete.bash
 
+# Run Git with Verbose mode
+# export GIT_SSH_COMMAND="ssh -vvv"
+
 bind 'set completion-ignore-case on'
