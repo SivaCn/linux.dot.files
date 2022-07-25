@@ -69,7 +69,12 @@ PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 28 ]; then CurDi
 # PS1='\n\n\[\e[1m\]==(\u)==(${CurDir})==(Git:$(git-branch-name))\n==> \[\e[0m\]'
 # PS1='\n\n|==(\u)==(Dir: ${CurDir})==(Git: $(git-branch-name))\n|-> '
 
-PS1='\n\n\[\e[0;94m\]\[\e[1m\]┌──[\u]──[Dir: \[\e[0;92m\]\[\e[1m\]${CurDir}\[\e[0;94m\]\[\e[1m\]]──[Git: \[\e[0;92m\]\[\e[1m\]$(git-branch-name)\[\e[0;94m\]\[\e[1m\]]\n└─➤ \[\e[0m\]'
+# PS1='\n\n\[\e[0;94m\]\[\e[1m\]┌──[\u]──[Dir: \[\e[0;92m\]\[\e[1m\]${CurDir}\[\e[0;94m\]\[\e[1m\]]──[Git: \[\e[0;92m\]\[\e[1m\]$(git-branch-name)\[\e[0;94m\]\[\e[1m\]]\n└─➤ \[\e[0m\]'
+
+
+# PS1='\n\[\e[0;94m\]\[\e[1m\]╭──❲\u❳──❲📂 ${CurDir}❳──❲♆ $(git-branch-name)❳\n╰─➤ \[\e[0m\]'
+
+PS1='\n\[\e[0;94m\]\[\e[1m\]╭──❲\[\033[1;33m\]${CurDir}\[\e[0;94m\]❳──❲\[\033[1;33m\]♆ $(git-branch-name)\[\e[0;94m\]❳\n\[\e[0;94m\]╰─➤ \[\e[0m\]'
 
 case "$TERM" in
   screen*|xterm*|rxvt*|Eterm*|kterm*|dtterm*|ansi*|cygwin*)
