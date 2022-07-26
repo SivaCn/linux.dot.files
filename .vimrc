@@ -13,23 +13,23 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-
-    " let Vundle manage Vundle, required
-    " This must be cloned first to begin with.
-    " clone https://github.com/VundleVim/Vundle.vim.git this repo into ~/.vim/bundle/Vundle.vim
-    Plugin 'VundleVim/Vundle.vim'               " https://github.com/VundleVim/Vundle.vim.git
-
-    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
-
-    Plugin 'tpope/vim-commentary'               " Comment stuff out
-    Plugin 'terryma/vim-multiple-cursors'
-
-    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
-
-call vundle#end()
+" call vundle#begin()
+"
+"     " let Vundle manage Vundle, required
+"     " This must be cloned first to begin with.
+"     " clone https://github.com/VundleVim/Vundle.vim.git this repo into ~/.vim/bundle/Vundle.vim
+"     Plugin 'VundleVim/Vundle.vim'               " https://github.com/VundleVim/Vundle.vim.git
+"
+"     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+"     Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+"     Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
+"
+"     Plugin 'tpope/vim-commentary'               " Comment stuff out
+"     Plugin 'terryma/vim-multiple-cursors'
+"
+"     Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
+"
+" call vundle#end()
 
 filetype on
 
@@ -162,12 +162,12 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_theme='luna'
 
 " 切换 buffer
-nnoremap <C-N> :bn<CR> 
-nnoremap <C-P> :bp<CR> 
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
 
 " 关闭状态显示空白符号计数
-let g:airline#extensions#whitespace#enabled = 1 
-let g:airline#extensions#whitespace#symbol = '!' 
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#symbol = '!'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
