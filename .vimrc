@@ -13,23 +13,23 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" call vundle#begin()
-"
-"     " let Vundle manage Vundle, required
-"     " This must be cloned first to begin with.
-"     " clone https://github.com/VundleVim/Vundle.vim.git this repo into ~/.vim/bundle/Vundle.vim
-"     Plugin 'VundleVim/Vundle.vim'               " https://github.com/VundleVim/Vundle.vim.git
-"
-"     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
-"     Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-"     Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
-"
-"     Plugin 'tpope/vim-commentary'               " Comment stuff out
-"     Plugin 'terryma/vim-multiple-cursors'
-"
-"     Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
-"
-" call vundle#end()
+call vundle#begin()
+
+    " let Vundle manage Vundle, required
+    " This must be cloned first to begin with.
+    " clone https://github.com/VundleVim/Vundle.vim.git this repo into ~/.vim/bundle/Vundle.vim
+    Plugin 'VundleVim/Vundle.vim'               " https://github.com/VundleVim/Vundle.vim.git
+
+    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plugin 'Lokaltog/powerline'                 " {'rtp': 'powerline/bindings/vim/'}   Powerline fonts plugin
+
+    Plugin 'tpope/vim-commentary'               " Comment stuff out
+    Plugin 'terryma/vim-multiple-cursors'
+
+    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
+
+call vundle#end()
 
 filetype on
 
