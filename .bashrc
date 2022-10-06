@@ -5,6 +5,8 @@
 export LOGSQL=INFO
 export LOGZSQL=INFO
 
+export PATH=$PATH:/usr/local/go/bin
+
 ## Sourcing External Configs
 source ~/.functions
 source ~/.aliases

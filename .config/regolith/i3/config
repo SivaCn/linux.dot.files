@@ -382,10 +382,14 @@ default_border pixel $i3-wm.window.border.size
 default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
-set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5
-set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 0
+set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 10
+set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 10
 gaps inner $i3-wm.gaps.inner.size
 gaps outer $i3-wm.gaps.outer.size
+
+for_window [class="^.*"] border pixel 1
+gaps inner 10
+gaps outer 0
 
 # Only enable gaps on a workspace when there is at least one container
 set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
@@ -467,7 +471,7 @@ set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urg
 
 set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
 # set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 13, Material Design Icons 13
-set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
+set_from_resource $i3-wm.bar.separator i3-wm.bar.separator "➤"
 set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
 set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
 
@@ -529,6 +533,43 @@ exec --no-startup-id $i3-wm.program.3
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+# exec --no-startup-id feh --bg-scale /home/sivacn/Wallpaper/Arch-1.jpg
+# regolith.wallpaper.file: /home/sivacn/Wallpaper/Arch-1.jpg
 
 # Set wallpaper (need to install feh)
-exec_always feh --bg-scale /home/sivacn/Wallpaper/Arch-1.jpg
+# exec_always feh --bg-scale /home/sivacn/Wallpaper/Arch-1.jpg
+
+assign [class="Slack"] 11
+assign [class="chromium"] 12
+assign [class="Spotify"] 20
+
+###############################################################################
+# Workspace Assignments
+###############################################################################
+workspace 1 output HDMI-1
+workspace 2 output HDMI-1
+workspace 3 output HDMI-1
+workspace 4 output HDMI-1
+workspace 5 output HDMI-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+workspace 10 output HDMI-1
+
+workspace 11 output eDP-1
+workspace 12 output eDP-1
+workspace 13 output eDP-1
+workspace 14 output eDP-1
+workspace 15 output eDP-1
+workspace 16 output eDP-1
+workspace 17 output eDP-1
+workspace 18 output eDP-1
+workspace 19 output eDP-1
+workspace 20 output eDP-1
+
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
