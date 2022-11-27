@@ -145,6 +145,9 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" Disable swap files
+set noswapfile
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
@@ -478,6 +481,7 @@ endfunction
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 0
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -492,7 +496,7 @@ let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 augroup completion_preview_close
   autocmd!

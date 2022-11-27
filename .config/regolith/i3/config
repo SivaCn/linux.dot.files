@@ -276,7 +276,8 @@ bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-bindsym $mod+Escape exec $i3-wm.program.lock
+# bindsym $mod+Escape exec $i3-wm.program.lock
+bindsym $mod+Escape exec /home/sivacn/.config/regolith/i3/i3lock-multimonitor/lock
 
 ## Session // Sleep // <><Shift> s ##
 set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
@@ -539,9 +540,17 @@ exec --no-startup-id blueman-applet
 # Set wallpaper (need to install feh)
 # exec_always feh --bg-scale /home/sivacn/Wallpaper/Arch-1.jpg
 
-assign [class="Slack"] 11
-assign [class="chromium"] 12
-assign [class="Spotify"] 20
+exec --no-startup-id spotify
+exec --no-startup-id chromium
+exec --no-startup-id transmission-gtk
+
+#
+# Find the window class by ``xprop | \grep WM_CLASS`` command
+assign [class="firefox"] 2
+assign [class="Slack"] 1
+assign [class="Chromium"] 11
+assign [class="Transmission-gtk"] 12
+assign [class="Spotify"] 13
 
 ###############################################################################
 # Workspace Assignments

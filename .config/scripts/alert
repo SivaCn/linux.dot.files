@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [ "$1" != "Spotify" ]; then
+    #
+    # Skip notification for the Spotify Application
+    paplay /home/sivacn/.config/notifcation-sounds/mixkit-sci-fi-click-900.wav;
+fi
